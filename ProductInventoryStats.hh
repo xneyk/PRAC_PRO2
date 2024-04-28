@@ -1,13 +1,15 @@
 /**
  * @file ProductInventoryStats.hh
- * @brief Especificación de un producto dentro de un inventario
- * 
- * Dentro de un inventario la información almacenada sobre el producto es cuantas unidades de dicho producto hay y cuantas se necesitan.
+ * @brief Especificación de la clase ProductInventoryStats.
 */
 
 #ifndef _PRODUCT_INVENTORY_STATS_HH_
 #define _PRODUCT_INVENTORY_STATS_HH_
 
+/**
+ * @class ProductInventoryStats
+ * @brief Representa un producto dentro de un inventario. La información almacenada sobre el producto es cuantas unidades de dicho producto hay y cuantas se necesitan.
+*/
 class ProductInventoryStats {
 private:
 

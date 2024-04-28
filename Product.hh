@@ -6,6 +6,10 @@
 #ifndef _PRODUCT_HH_
 #define _PRODUCT_HH_
 
+/**
+ * @class Product
+ * @brief Representa un producto con su correspondiente peso y volumen
+*/
 class Product {
 private:
 

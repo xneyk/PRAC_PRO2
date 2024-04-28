@@ -1,8 +1,6 @@
 /**
  * @file City.hh
  * @brief Especificación de la clase City.
- * 
- * Dicha clase representa una ciudad. Cada ciudad tiene un nombre y un inventario (representado) por la clase "Inventory"
 */
 #ifndef _CITY_HH_
 #define _CITY_HH_
@@ -14,6 +12,10 @@
 #include "Inventory.hh"
 using namespace std;
 
+/**
+ * @class City
+ * @brief Representa una ciudad. Cada ciudad tiene un nombre y un inventario (representado) por la clase "Inventory"
+*/
 class City {
 private:
 

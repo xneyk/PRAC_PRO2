@@ -1,8 +1,6 @@
 /**
  * @file ProductSet.hh
  * @brief Especificación de la classe ProductSet
- * 
- * Dicha clase, representa un conjunto de productos (clase Product). Cada producto se identifica con un id numérico.
 */
 #ifndef _PRODUCT_SET_HH_
 #define _PRODUCT_SET_HH_
@@ -14,6 +12,10 @@
 #include "Product.hh"
 using namespace std;
 
+/**
+ * @class ProductSet
+ * @brief Representa un conjunto de productos (clase Product). Cada producto se identifica mediante un id numérico.
+*/
 class ProductSet {
 private:
 

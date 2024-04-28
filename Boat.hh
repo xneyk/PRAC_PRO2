@@ -1,13 +1,15 @@
 /**
  * @file Boat.hh
  * @brief Especificación de la clase Boat.
- * 
- * Un barco (Boat) se dedica a hacer viages, donde intenta vender una cantidad de un cierto producto y comprar una cantidad de otro cierto producto. Estos dos productos siempre son distintos. Ambas cantidades serán no negativas y al menos una de ellas será estrictamente positiva
  */
 
 #ifndef _BOAT_HH_
 #define _BOAT_HH_ 
 
+/**
+ * @class Boat
+ * @brief Un barco (Boat) se dedica a hacer viajes, donde intenta vender una cantidad de un cierto producto y comprar una cantidad de otro cierto producto. Estos dos productos siempre son distintos. Ambas cantidades serán no negativas y al menos una de ellas será estrictamente positiva
+*/
 class Boat {
 private:
 

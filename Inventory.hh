@@ -1,8 +1,6 @@
 /**
  * @file Inventory.hh
- * @brief Especificación de la clase Inventario
- * 
- * Un inventario es un contenedor destinado a almacenar productos (clase Product). Por otro lado, de cada producto, guarda cuantas unidades de éste hay en el inventario y cuantas son necesarias. No puede pasar que haya un producto donde las unidades necesarias sean 0.
+ * @brief Especificación de la clase Inventary
 */
 
 #ifndef _INVENTORY_HH_
@@ -15,6 +13,10 @@
 #include "ProductSet.hh"
 #include "ProductInventoryStats.hh"
 
+/**
+ * @class Inventory
+ * @brief Un inventario es un contenedor destinado a almacenar productos (clase Product). Por otro lado, de cada producto, guarda cuantas unidades de éste hay en el inventario y cuantas son necesarias. No puede pasar que haya un producto donde las unidades necesarias sean 0.
+*/
 class Inventory {
 private:
    
