@@ -3,3 +3,5 @@
 *.o
 ./DOC
 ./sample
+.vscode/settings.json
+.vscode
