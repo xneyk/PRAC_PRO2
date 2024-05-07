@@ -6,6 +6,12 @@
 #ifndef _PRODUCT_HH_
 #define _PRODUCT_HH_
 
+#ifndef NO_DIAGRAM
+#include <iostream>
+#endif
+
+using namespace std;
+
 /**
  * @class Product
  * @brief Representa un producto con su correspondiente peso y volumen
@@ -46,7 +52,7 @@ public:
    */
    int getVolume() const;
 
-   // Output / Escritura
+   // I/O
 
    /**
     * @brief Método de output de un producto.
