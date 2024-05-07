@@ -19,7 +19,6 @@ using namespace std;
 class City {
 private:
 
-   string name;
    Inventory inventory;
    // int totalWeight; <-- Propiedades naturales de
    // int totalVolume;     un inventario, no de la ciudad.
@@ -30,17 +29,17 @@ public:
    
    /**
     * @brief Creadora de ciudades sin inventario
-    * \pre El primer carácter de "name" es una letra.
+    * \pre Cierto.
     * \post Se ha creado una nueva instancia de City con nombre = "name" y inventario vacio.
    */
-   City(string name);
+   City();
 
    /**
     * @brief Creadora de ciudades con inventario
-    * \pre El primer carácter de "name" es una letra.
+    * \pre Cierto.
     * \post Se ha creado una nueva instancia de City con nombre = "name" y un inventario = "inventory".
    */
-   City(string name, Inventory inventory);
+   City(Inventory inventory);
 
    // Modificadoras
 
@@ -65,7 +64,7 @@ public:
     * \pre El producto con id "id" se encuentra dentro del inventario del parámetro implícito.
     * \post El inventario del parámetro implicito ya no contiene el producto "id". Todas las uds de dicho producto que tenia la ciudad han desaparecido.
    */
-   void deleteProduct(int id);
+   void removeProduct(int id);
 
    // Consultoras
 

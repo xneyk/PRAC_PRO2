@@ -60,7 +60,7 @@ public:
     * \pre El producto con id "id" se encuentra dentro del inventario del parámetro implícito.
     * \post El inventario del parámetro implicito ya no contiene el producto "id". Todas las uds de dicho producto que tenia la ciudad han desaparecido.
    */
-   void deleteProduct(int id);
+   void removeProduct(int id);
 
    // Consultoras
 

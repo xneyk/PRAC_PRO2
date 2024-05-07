@@ -22,6 +22,7 @@ private:
    // Se ha decidido representar el conjunto de productos como 
    // un mapa de nombre del producto --> características del producto
    map<int,Product> setOfProducts;
+   int lastIdAdded;
 
 public:
 
