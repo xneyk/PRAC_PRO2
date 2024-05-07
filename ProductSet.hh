@@ -48,6 +48,13 @@ public:
    // Consultoras
 
    /**
+    * \brief Comprueva si existe el producto dado un cierto id.
+    * \pre Cierto.
+    * \post Retorna "true" si existe el producto con id "id" en el parámetro implícito, "false" en caso contrario.
+   */
+   bool existsProductWithId(int id);
+
+   /**
     * @brief Consultora del nombre de productos diferentes en el conjunto.
     * \pre Cierto.
     * \post Retorna el múmero de productos diferents en el parámetro implícito.

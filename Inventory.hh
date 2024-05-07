@@ -78,34 +78,48 @@ public:
    */
    int getTotalVolume();
 
+   // /**
+   //  * @brief Consultora de las estadísitcas de un producto (Ver clase ProductInventoryStats).
+   //  * \pre el producto con identificador "id" existe dentro del inventario.
+   //  * \post Retorna las estadísitcas de un producto del parámetro implícito
+   // */
+   // ProductInventoryStats getProductStats(int id);
+
    /**
-    * @brief Consultora de las estadísitcas de un producto (Ver clase ProductInventoryStats).
-    * \pre el producto con identificador "id" existe dentro del inventario.
-    * \post Retorna las estadísitcas de un producto del parámetro implícito
+    * @brief Consultora de unidades necesarias.
+    * \pre Cierto.
+    * \post Retorna el numero de unidades necesarias del parametro implícito
    */
-   ProductInventoryStats getProductStats(int id);
+   int getNeededById(int id) const;
+
+   /**
+    * @brief Consultora de unidades disponibles.
+    * \pre Cierto.
+    * \post Retorna el numero de unidades disponibles del parametro implícito
+   */
+   int getOwnedById(int id) const;
 
    // <---------->
    // NO SOY DEMASIADO FAN DE QUE LA LECTURA Y ESCRITURA DE UN TIPO DE DATOS VAYAN LIGADOS A LA CLASE
-   //
-   // // IO (Lectura - Escritura)
+   
+   // IO (Lectura - Escritura)
 
-   // /**
-   //  * @brief Input de un inventario por el canal estándar.
-   //  * \pre En el canal estándar se encuentra la información de un inventario en el siguiente formato:
-   //  * \warning Aún se debe especificar cúal es el formato de lectura de un inventario.
-   //  * \post Se ha leido la información pertinente del inventario y todos los datos se encuentran disponibles en el parámetro implicito.
-   // */
-   // void read();
+   /**
+    * @brief Input de un inventario por el canal estándar.
+    * \pre En el canal estándar se encuentra la información de un inventario en el siguiente formato:
+    * \warning Aún se debe especificar cúal es el formato de lectura de un inventario.
+    * \post Se ha leido la información pertinente del inventario y todos los datos se encuentran disponibles en el parámetro implicito.
+   */
+   void read();
 
 
-   // /**
-   //  * @brief Output de un inventario por el canal estándar.
-   //  * \pre Cierto.
-   //  * \warning Aún se debe especificar cúal es el formato de escritura de un inventario.
-   //  * \post Se he dejado en el canal estándar la información del inventario en el formato pertinente.
-   // */
-   // void write();
+   /**
+    * @brief Output de un inventario por el canal estándar.
+    * \pre Cierto.
+    * \warning Aún se debe especificar cúal es el formato de escritura de un inventario.
+    * \post Se he dejado en el canal estándar la información del inventario en el formato pertinente.
+   */
+   void write();
    // <---------->
 };
 

@@ -55,7 +55,7 @@ public:
     * 
     * Es decir, modifica cuantas unidades se tienen de dicho producto y cuantas se necesitan.
     * \pre El producto con id "id" se encuentra dentro del inventario del parámetro implícito. "newOwned" >= 0 y "newNeeded" > 0.
-    * \post El parámetro implicito tiene "owned" uds. del producto "id" y necesita "needed" uds.
+    * \post El parámetro implicito tiene "newOwned" uds. del producto "id" y necesita "newNeeded" uds.
    */
    void setProductStatus(int id, int newOwned, int newNeeded);
 
