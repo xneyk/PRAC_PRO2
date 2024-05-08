@@ -6,6 +6,11 @@
 #ifndef _BOAT_HH_
 #define _BOAT_HH_ 
 
+#ifndef NO_DIAGRAM
+#include <iostream>
+using namespace std;
+#endif
+
 /**
  * @class Boat
  * @brief Un barco (Boat) se dedica a hacer viajes, donde intenta vender una cantidad de un cierto producto y comprar una cantidad de otro cierto producto. Estos dos productos siempre son distintos. Ambas cantidades serán no negativas y al menos una de ellas será estrictamente positiva
@@ -21,6 +26,15 @@ private:
 public:
 
    // Constructoras
+
+   /**
+    * @brief Creadora de barcos no inicializados
+    * 
+    * Un barco inicializado es aquel que tiene definidos que producto vende, cual compra, y cuantos dispone de cada uno.
+    * \pre Cierto.
+    * \post Se ha creado un barco NO inicializado.
+   */
+   Boat();
 
    /**
     * @brief Creadora de barcos inicializados
@@ -92,6 +106,15 @@ public:
     * \post Retorna el identificador del producto que compra el parámetro implícito.
    */
    int getProductForSaleId();
+   
+   // I/O
+
+   /**
+    * @brief Output de la clase Boat.
+    * \pre El parámetro implicito esta inicializado.
+    * \post Se ha escrito la información del parámetro implícito por el canal estandard, siguiendo el formato especificado.
+   */
+   void print();
 };
 
 #endif
