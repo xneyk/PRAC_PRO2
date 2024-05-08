@@ -1,7 +1,7 @@
 *.x
 *.exe
 *.o
-./DOC
+DOC
 ./sample
 .vscode/settings.json
 .vscode

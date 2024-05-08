@@ -66,7 +66,7 @@ public:
     * \pre El producto con id "id" existe y no se encuentra dentro del inventario de la ciudad "city_name". "owned" >= 0 y "needed" > 0.
     * \post En el inventario de la ciudad "city_name" hay un nuevo producto con id "id". La ciudad "city_name". tiene "owned" uds. del producto y necesita "needed" uds. del producto.
    */
-   void addProduct(string, int id, int owned, int needed);
+   void addProduct(string city_name, int id, int owned, int needed);
 
    /**
     * @brief Modifica los datos del producto con identificador "id" en el inventario de la ciudad "city_name".
