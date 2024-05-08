@@ -31,17 +31,17 @@ public:
 
    /**
     * @brief Modificadora de unidades necesarias.
-    * \pre "newNeeded" > 0
-    * \post El atributo unidades necesarias del parámetro implícito ahora es "newNeeded".
+    * \pre "new_needed" > 0
+    * \post El atributo unidades necesarias del parámetro implícito ahora es "new_needed".
    */
-   void setNeeded(int newNeeded);
+   void setNeeded(int new_needed);
    
    /**
     * @brief Modificadora de unidades disponibles del producto en el inventario.
-    * \pre "newOwned" >= 0
-    * \post El atributo unidades disponibles en el inventario del parámetro implícito ahora es "newOwned".
+    * \pre "new_owned" >= 0
+    * \post El atributo unidades disponibles en el inventario del parámetro implícito ahora es "new_owned".
    */
-   void setOwned(int newOwned);
+   void setOwned(int new_owned);
 
    // Consultoras
 
