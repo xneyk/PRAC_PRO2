@@ -14,6 +14,10 @@
 
 #include "City.hh"
 
+/**
+ * @class River
+ * @brief Un río (River) representa una estructura (arborescente) donde hay ciudades en sus fuentes/nacimientos y en los puntos en que dos afluentes se unen, incluida la desembocadura, donde casualmente se unen dos afluentes. No hay ciudades en tramos del río que no sean nacimientos o uniones de afluentes.
+*/
 class River {
 private:
 
