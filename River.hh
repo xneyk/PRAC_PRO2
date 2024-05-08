@@ -84,6 +84,33 @@ public:
    */
    void removeProduct(int id);
 
+   /**
+    * @brief Dos ciudades (existentes) del rio comercian entre ellas.
+    * 
+    * Una ciudad le da a la otra todos los productos que le sobren hasta alcanzar si es posible los que la otra necesite, y viceversa.
+    * \pre "cityA" y "cityB" son los identificadores de dos ciudades EXISTENTES en el parámetro implícito.
+    * \post Las dos ciudades han intercambiado productos. Ninguna de las dos se queda con menos unidades de las necesarias si la cantidad de dicho producto era superior que las que necesita.
+   */
+   void trade(string cityA, string cityB);
+
+   /**
+    * @brief A partir de la ciudad de la desembocadura, cada ciudad comerciará con las dos ciudades inmediatamente situadas río arriba.
+    * 
+    * Primero comerciará la ciudad de la desembocadura con la ciudad río arriba a mano derecha y luego con la ciudad río arriba a mano izquierda, y así sucesivamente, hasta llegar a las ciudades de los nacimientos.
+    * \pre Cierto.
+    * \post Todas las ciudades han comerciado con sus vecinos immediados. primero con la situada a la derecha y luego con la situada a la izquierda
+   */
+   void redistribute();
+
+   /**
+    * @brief Acción de comerció entre un barco y una ruta ciudades del Rio. 
+    * 
+    * El como se decide en que ruta comerciar en caso que haya más de una ruta igual de provechosa es quedarse con la más corta, y en caso de que tengan la misma longitud, quedarse con la que viene río arriba a mano derecha.
+    * \pre Cierto.
+    * \post El barco ha comerciado con todas aquellas ciudades del camino que mas provecho le daba.
+   */
+   void travel();
+
    // I/O
 
    void read();
