@@ -31,6 +31,15 @@ public:
    */
    Boat(int productForSaleId, int availible, int productToBuyId, int purchased);
 
+   /**
+    * @brief Creadora copiadora de barcos
+    * 
+    * Crea una nueva instancia de Boat como copia de una ya existente.
+    * \pre Cierto.
+    * \post Los atributos de la nueva instancia son iguales a los del parámetro de referencia uno a uno.
+   */
+   Boat(const Boat &boat);
+
    // Modificadoras
 
    /**
