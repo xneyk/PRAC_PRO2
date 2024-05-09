@@ -2,28 +2,32 @@
 
 // Constructoras
 
-ProductInventoryStats::ProductInventoryStats(int needed, int owned) {
-   this->needed = needed;
-   this->owned = owned;
+ProductInventoryStats::ProductInventoryStats() {
+   owned = -1;
+   needed = -1;
 }
 
+ProductInventoryStats::ProductInventoryStats(int owned, int needed) {
+   this->owned = owned;
+   this->needed = needed;
+}
 
 // Modificadoras
-
-void ProductInventoryStats::setNeeded(int new_needed) {
-   needed = new_needed;
-}
 
 void ProductInventoryStats::setOwned(int new_owned) {
    owned = new_owned;
 }
 
-// Consultoras
-
-int ProductInventoryStats::getNeeded() const {
-   return needed;
+void ProductInventoryStats::setNeeded(int new_needed) {
+   needed = new_needed;
 }
+
+// Consultoras
 
 int ProductInventoryStats::getOwned() const {
    return owned;
+}
+
+int ProductInventoryStats::getNeeded() const {
+   return needed;
 }

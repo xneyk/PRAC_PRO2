@@ -27,6 +27,13 @@ public:
    // Constructoras
 
    /**
+    * @brief Creadora de productos no inicializados.
+    * \pre Cierto.
+    * \post Se ha creado una instancia de producto sin un peso y un volumen assignado.
+   */
+   Product();
+
+   /**
     * @brief Creadora de productos.
     * 
     * Cualquier producto tiene un peso y un volumen concretos.

@@ -3,6 +3,11 @@
 
 // Constructoras
 
+Product::Product() {
+   weight = -1;
+   volume = -1;
+}
+
 Product::Product(int weight, int volume) {
    this->weight = weight;
    this->volume = volume;

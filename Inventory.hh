@@ -8,6 +8,7 @@
 
 #ifndef NO_DIAGRAM
 #include <map>
+using namespace std;
 #endif
 
 #include "ProductSet.hh"
@@ -44,23 +45,23 @@ public:
     * \pre El producto con id "id" existe y no se encuentra dentro del inventario del parámetro implícito. "owned" >= 0 y "needed" > 0.
     * \post En el inventario del parámetro implícito hay un nuevo producto con id "id". El parámetro implicito tiene "owned" uds. del producto y necesita "needed" uds. del producto.
    */
-   void addProduct(int id, int owned, int needed);
+   void addProduct(int id, const ProductSet &product_set, int owned, int needed);
 
    /**
     * @brief Modifica los datos del producto con identificador "id" en el inventario del parámetro ímplicito.
     * 
     * Es decir, modifica cuantas unidades se tienen de dicho producto y cuantas se necesitan.
-    * \pre El producto con id "id" se encuentra dentro del inventario del parámetro implícito. "newOwned" >= 0 y "newNeeded" > 0.
-    * \post El parámetro implicito tiene "owned" uds. del producto "id" y necesita "needed" uds.
+    * \pre El producto con id "id" se encuentra dentro del inventario del parámetro implícito. "new_owned" >= 0 y "new_needed" > 0.
+    * \post El parámetro implicito tiene "owned" uds. del producto "id" y necesita "needed" uds..
    */
-   void setProductStatus(int id, int newOwned, int newNeeded);
+   void setProductStatus(int id, const ProductSet &product_set, int new_owned, int new_needed);
 
    /**
     * @brief Elimina el producto "id" del inventario del parámetro implícito.
     * \pre El producto con id "id" se encuentra dentro del inventario del parámetro implícito.
     * \post El inventario del parámetro implicito ya no contiene el producto "id". Todas las uds de dicho producto que tenia la ciudad han desaparecido.
    */
-   void removeProduct(int id);
+   void removeProduct(int id, const ProductSet &product_set);
 
    // Consultoras
 
@@ -86,19 +87,19 @@ public:
    // ProductInventoryStats getProductStats(int id);
 
    /**
-    * @brief Consultora de unidades necesarias.
-    * \pre Cierto.
-    * \post Retorna el numero de unidades necesarias del parametro implícito
-   */
-   int getNeededById(int id) const;
-
-   /**
     * @brief Consultora de unidades disponibles.
     * \pre Cierto.
     * \post Retorna el numero de unidades disponibles del parametro implícito
    */
    int getOwnedById(int id) const;
 
+   /**
+    * @brief Consultora de unidades necesarias.
+    * \pre Cierto.
+    * \post Retorna el numero de unidades necesarias del parametro implícito
+   */
+   int getNeededById(int id) const;
+   
    // <---------->
    // NO SOY DEMASIADO FAN DE QUE LA LECTURA Y ESCRITURA DE UN TIPO DE DATOS VAYAN LIGADOS A LA CLASE
    
@@ -106,20 +107,18 @@ public:
 
    /**
     * @brief Input de un inventario por el canal estándar.
-    * \pre En el canal estándar se encuentra la información de un inventario en el siguiente formato:
-    * \warning Aún se debe especificar cúal es el formato de lectura de un inventario.
+    * \pre En el canal estándar se encuentra la información de un inventario en el siguiente formato: se lee un número indicando cuatos productos se añaden. A continuación vienen n lineas de "product_id" "owned" "needed". "needed" > 0.
     * \post Se ha leido la información pertinente del inventario y todos los datos se encuentran disponibles en el parámetro implicito.
    */
-   void read();
+   void read(const ProductSet &product_set);
 
 
    /**
     * @brief Output de un inventario por el canal estándar.
     * \pre Cierto.
-    * \warning Aún se debe especificar cúal es el formato de escritura de un inventario.
-    * \post Se he dejado en el canal estándar la información del inventario en el formato pertinente.
+    * \post Se he dejado en el canal estándar la información del inventario en el formato pertinente: "product_id" "owned" "needed", para cada producto del inventario.
    */
-   void write();
+   void print() const;
    // <---------->
 };
 
