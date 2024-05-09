@@ -52,7 +52,7 @@ public:
     * \pre Cierto.
     * \post Retorna "true" si existe el producto con id "id" en el parámetro implícito, "false" en caso contrario.
    */
-   bool existsProductWithId(int id);
+   bool existsProductWithId(int id) const;
 
    /**
     * @brief Consultora del nombre de productos diferentes en el conjunto.
@@ -73,7 +73,7 @@ public:
     * \pre el producto con identificador "id" pertenece al conjunto.
     * \post Retorna el volument del producto con con identificador "id" contenido en el parámetro ímplicito
    */
-   int getVolumebyId(int id) const;
+   int getVolumeById(int id) const;
 };
 
 #endif
