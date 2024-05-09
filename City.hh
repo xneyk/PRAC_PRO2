@@ -112,7 +112,7 @@ public:
     * \pre Cierto.
     * \post Se he dejado en el canal estándar la información del inventario en el formato pertinente: "product_id" "owned" "needed", para cada producto del inventario.
    */
-   void print() const;
+   void printInventory() const;
    // <---------->
 };
 

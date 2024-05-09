@@ -8,13 +8,13 @@ using namespace std;
 
 int main() {
    // Inicialicación del CONJUNTO DE PRODUCTOS.
-   ProductSet productSet;
+   ProductSet product_set;
 
    int initial_products;
    cin >> initial_products;
    for (int i = 0; i < initial_products; ++i) {
       int weight, volume;
-      productSet.addProduct(Product(weight, volume));
+      product_set.addProduct(Product(weight, volume));
    }
 
    // Inicialicación del RIO.
@@ -30,9 +30,12 @@ int main() {
 
    // TRATAMIENTO DE LOS COMANDOS
    string cmd;
+   string city_id;
+   int product_id;
+   int product_need, product_own;
    while (cin >> cmd and cmd != "fin") {
       if (cmd == "leer_rio" or cmd == "lr") {
-
+         river.read();
       }
       else if (cmd == "leer_inventario" or cmd == "li") {
 
@@ -41,10 +44,11 @@ int main() {
 
       }
       else if (cmd == "modificar_barco" or cmd == "mb") {
-
+         cin >> forSaleId >> availible >> toBuyId >> purchased;
+         boat.setBoat(forSaleId, availible, toBuyId, purchased);
       }
       else if (cmd == "escribir_barco" or cmd == "eb") {
-
+         boat.print();
       }
       else if (cmd == "consultar_num" or cmd == "cn") {
 
@@ -59,7 +63,14 @@ int main() {
 
       }
       else if (cmd == "poner_prod" or cmd == "pp") {
-
+         cin >> city_id >> product_id >> product_own >> product_need;
+         if (product_set.existsProductWithId(product_id)) {
+            if (river.existsCityWithId(city_id)) {
+               river.addProduct(city_id, product_id, product_own, product_need);
+            }
+            else cout << "error: no existe la ciudad" << endl;
+         }
+         else cout << "error: no existe el producto" << endl;
       }
       else if (cmd == "modificar_prod" or cmd == "mp") {
 
@@ -79,7 +90,5 @@ int main() {
       else if (cmd == "hacer_viaje" or cmd == "hv") {
 
       }
-      // Esta úlima línea es solo para la fase de desarrollo, en la entrega definitiva se va a eliminar.
-      else cerr << cmd << " NO es un comando vàlido\n";
    }
 }

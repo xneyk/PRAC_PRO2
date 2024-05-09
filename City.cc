@@ -65,7 +65,7 @@ void City::read(const ProductSet &product_set) {
    }
 }
 
-void City::print() const {
+void City::printInventory() const {
    map<int,ProductInventoryStats>::const_iterator inventory_line = inventory.begin();
    while (inventory_line != inventory.end()) {
       cout << inventory_line->first << ' ';

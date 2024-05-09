@@ -92,6 +92,15 @@ public:
     * \post Retorna el identificador del producto que compra el parámetro implícito.
    */
    int getProductForSaleId();
+
+   // I/O
+
+   /**
+    * @brief Output de la clase Boat
+    * \pre El barco esta inicializado.
+    * \post Se escribe el contenido del barco siguiendo el formato: "producto_vender" "cantidad" "producto_comprar" "cantidad"
+   */
+   void print();
 };
 
 #endif
