@@ -1,0 +1,43 @@
+addProductToSet
+1 1
+addProductToSet
+2 2
+addProductToSet
+3 3
+addProductToSet
+4 4
+addProductToSet
+5 5
+existsProductWithId
+1
+existsProductWithId
+2
+existsProductWithId
+3
+existsProductWithId
+4
+existsProductWithId
+5
+existsProductWithId
+6
+getTotalProducts
+getWeightById
+1
+getWeightById
+2
+getWeightById
+3
+getWeightById
+4
+getWeightById
+5
+getVolumeById
+1
+getVolumeById
+2
+getVolumeById
+3
+getVolumeById
+4
+getVolumeById
+5
