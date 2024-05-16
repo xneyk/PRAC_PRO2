@@ -2,6 +2,13 @@
 
 // Constuctoras
 
+Boat::Boat() {
+   productForSaleId = 0;
+   availible = 0;
+   productToBuyId = 0;
+   purchased = 0;
+}
+
 Boat::Boat(int productForSaleId, int availible, int productToBuyId, int purchased) {
    this->productForSaleId = productForSaleId;
    this->availible = availible;

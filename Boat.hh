@@ -23,6 +23,15 @@ public:
    // Constructoras
 
    /**
+    * @brief Creadora de barcos no inicializados
+    * 
+    * Un barco inicializado es aquel que tiene definidos que producto vende, cual compra, y cuantos dispone de cada uno.
+    * \pre Cierto.
+    * \post Se ha creado un barco NO inicializado.
+   */
+   Boat();
+
+   /**
     * @brief Creadora de barcos inicializados
     * 
     * Un barco inicializado es aquel que tiene definidos que producto vende, cual compra, y cuantos dispone de cada uno.
