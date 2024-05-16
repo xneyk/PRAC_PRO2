@@ -65,23 +65,10 @@ BinTree<string> River::buildRiverChildren() {
    }
 }
 
-void River::printBoat() {
-   boat.print();
-   list<string>::const_iterator travel = travels.begin();
-   while (travel != travels.end()) {
-      cout << *travel << endl;
-   }
-}
-
-
 // Métodos Privados (para hacer más legible/limpia la implementación)
 
 City River::getCity(string city_name) const {
    return citySet.at(city_name);
-}
-
-void River::addTravel(string city_name) {
-   travels.push_front(city_name);
 }
 
 // SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
