@@ -31,9 +31,6 @@ private:
    map<string, City> citySet; // Tal vez seria buena idea abstraerlo en una clase CitySet.
    // Es en este conjunto de ciudades donde se relaciona a cada clase con su identificador
    // correspondiente.
-   
-   Boat boat;
-   list<string> travels;
 
 
    /**

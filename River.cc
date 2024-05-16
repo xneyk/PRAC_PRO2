@@ -5,7 +5,6 @@
 River::River() {
    structure = BinTree<string>();
    citySet = map<string, City>();
-   boat = Boat();
 }
 
 // Consultoras
