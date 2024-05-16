@@ -15,25 +15,25 @@ bool River::existsCityWithId(string name) const {
 }
 
 int River::getProductOwnedById(string city_name, int product_id) const {
-   return getCity(city_name).getProductOwnedById(product_id);
+   return getCity(city_name).getOwnedById(product_id);
 }
 
 int River::getProductNeededById(string city_name, int product_id) const {
-   return getCity(city_name).getProductOwnedById(product_id);
+   return getCity(city_name).getNeededById(product_id);
 }
 
 // Modificadoras
 
-void River::addProduct(string city_name, int id, int owned, int needed) {
-   getCity(city_name).addProduct(id, owned, needed);
+void River::addProduct(string city_name, int id, const ProductSet &product_set, int owned, int needed) {
+   getCity(city_name).addProduct(id, product_set, owned, needed);
 }
 
-void River::setProductStatus(string city_name, int id, int new_owned, int new_needed) {
-   getCity(city_name).setProductStatus(id, new_owned, new_needed);
+void River::setProductStatus(string city_name, int id, const ProductSet &product_set, int new_owned, int new_needed) {
+   getCity(city_name).setProductStatus(id, product_set, new_owned, new_needed);
 }
 
-void River::removeProduct(string city_name, int id) {
-   getCity(city_name).removeProduct(id);
+void River::removeProduct(string city_name, int id, const ProductSet &product_set) {
+   getCity(city_name).removeProduct(id, product_set);
 }
 
 void River::trade(string cityA, string cityB) {
