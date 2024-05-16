@@ -9,21 +9,50 @@
 #ifndef NO_DIAGRAM
 #include "BinTree.hh"
 #include <map>
+#include <list>
 #include <string>
+using namespace std;
 #endif
 
 #include "City.hh"
+#include "Boat.hh"
 
+/**
+ * @class River
+ * @brief Un río (River) representa una estructura (arborescente) donde hay ciudades en sus fuentes/nacimientos y en los puntos en que dos afluentes se unen, incluida la desembocadura, donde casualmente se unen dos afluentes. No hay ciudades en tramos del río que no sean nacimientos o uniones de afluentes.
+*/
 class River {
 private:
 
-   BinTree<string> river; 
+   BinTree<string> structure;
    // Representa la estructura de la cuenca fluvial
    // Observación: Notad que solamente se trata de sus identificadores, la información
    // de cada ciudad se almacena en una clase "City".
    map<string, City> citySet; // Tal vez seria buena idea abstraerlo en una clase CitySet.
    // Es en este conjunto de ciudades donde se relaciona a cada clase con su identificador
    // correspondiente.
+
+
+   /**
+    * @brief Obtiene una ciudad del río dado su nombre (identificador)
+    * \pre La ciudad existe, pertenece al parámetro implícito
+    * \post Retorna la instancia de dicha ciudad.
+   */
+   City getCity(string city_name) const;
+
+   /**
+    * @brief Añade la última ciudad del viaje a los viajes realizados.
+    * \pre Cierto
+    * \post "city_name" se ha añadido como último viaje realizado.
+   */
+   void addTravel(string city_name);
+
+   /**
+    * @brief Método auxiliar para la lectura de la estructura del río.
+    * \pre La información del nuevo rio se encuentra en el canal estandard siguiendo el formato específico.
+    * \post Se ha sobre escrito parámetro implícito con la nueva estructura de la cuenta. Todas sus ciudades han quedado con el inventario vacio.
+   */
+   BinTree<string> buildRiverChildren();
 
 public:
 
@@ -50,14 +79,14 @@ public:
     * \pre El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name".
     * \post Retorna el numero de unidades del producto "id" que tiene la ciudad "city_name".
    */
-   int getProductOwnedById(string city_name, int product_id);
+   int getProductOwnedById(string city_name, int product_id) const;
 
    /**
     * @brief Consultora de las unidades del producto "id" que necesita la ciudad "city_name".
     * \pre El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name".
     * \post Retorna el numero de unidades del producto "id" que necesita la ciudad "city_name".
    */
-   int getProductNeededById(string city_name, int product_id);
+   int getProductNeededById(string city_name, int product_id) const;
 
    // Modificadoras
 
@@ -66,23 +95,23 @@ public:
     * \pre El producto con id "id" existe y no se encuentra dentro del inventario de la ciudad "city_name". "owned" >= 0 y "needed" > 0.
     * \post En el inventario de la ciudad "city_name" hay un nuevo producto con id "id". La ciudad "city_name". tiene "owned" uds. del producto y necesita "needed" uds. del producto.
    */
-   void addProduct(string, int id, int owned, int needed);
+   void addProduct(string city_name, int id, const ProductSet& product_set, int owned, int needed);
 
    /**
     * @brief Modifica los datos del producto con identificador "id" en el inventario de la ciudad "city_name".
     * 
     * Es decir, modifica cuantas unidades se tienen de dicho producto y cuantas se necesitan.
-    * \pre El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". "newOwned" >= 0 y "newNeeded" > 0.
-    * \post La ciudad "city_name" tiene "newOwned" uds. del producto "id" y necesita "newNeeded" uds.
+    * \pre El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". "new_owned" >= 0 y "new_needed" > 0.
+    * \post La ciudad "city_name" tiene "new_owned" uds. del producto "id" y necesita "new_needed" uds.
    */
-   void setProductStatus(int id, int newOwned, int newNeeded);
+   void setProductStatus(string city_name, int id, const ProductSet& product_set, int new_owned, int new_needed);
 
    /**
-    * @brief Elimina el producto "id" del inventario del parámetro implícito
-    * \pre El producto con id "id" se encuentra dentro del inventario del parámetro implícito.
-    * \post El inventario del parámetro implicito ya no contiene el producto "id". Todas las uds de dicho producto que tenia la ciudad han desaparecido.
+    * @brief Elimina el producto "id" del inventario de la ciudad "city_name"
+    * \pre El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". "city_name" se encuentra en el parámetro implícito.
+    * \post El inventario de la ciudad "city_name" ya no contiene el producto "id". Todas las uds de dicho producto que tenia la ciudad han desaparecido.
    */
-   void removeProduct(int id);
+   void removeProduct(string city_name, int id, const ProductSet& product_set);
 
    /**
     * @brief Dos ciudades (existentes) del rio comercian entre ellas.
@@ -113,8 +142,17 @@ public:
 
    // I/O
 
+   /**
+    * @brief Input de la clase River
+    * \pre La información del nuevo rio se encuentra en el canal estandard siguiendo el formato específico.
+    * \post Se ha sobre escrito parámetro implícito con la nueva estructura de la cuenta. Todas sus ciudades han quedado con el inventario vacio.
+   */
    void read();
 
+   void printBoat();
+
+   // SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
+   void printRiver();
 };
 
 #endif

@@ -4,7 +4,7 @@
 
 ProductSet::ProductSet() {
    setOfProducts = map<int,Product>();
-   int lastIdAdded = 0;  
+   lastIdAdded = 0;
 }
 
 // Modificadoras
@@ -17,7 +17,7 @@ void ProductSet::addProduct(Product product) {
 // Consultoras
 
 bool ProductSet::existsProductWithId(int id) const {
-   return 1 <= id <= lastIdAdded;
+   return 1 <= id and id <= lastIdAdded;
 }
 
 int ProductSet::getTotalProducts() const {

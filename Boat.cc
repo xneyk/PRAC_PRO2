@@ -3,9 +3,9 @@
 // Constuctoras
 
 Boat::Boat() {
-   productForSaleId = 0;   
-   availible = 0;   
-   productToBuyId = 0;   
+   productForSaleId = 0;
+   availible = 0;
+   productToBuyId = 0;
    purchased = 0;
 }
 
