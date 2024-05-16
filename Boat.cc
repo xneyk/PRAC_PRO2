@@ -60,4 +60,14 @@ int Boat::getProductForSaleId() {
 void Boat::print() {
    cout << productForSaleId << ' ' << availible << ' ' << productToBuyId << ' ' << purchased;
    cout << endl;
+   list<string>::const_iterator travel = travels.begin();
+   while (travel != travels.end()) {
+      cout << *travel << endl;
+   }
+}
+
+// Métodos privados para mayor legibilidad / limpieza.
+
+void Boat::addTravel(string city_name) {
+   travels.push_front(city_name);
 }

@@ -8,6 +8,7 @@
 
 #ifndef NO_DIAGRAM
 #include <iostream>
+#include <list>
 using namespace std;
 #endif
 
@@ -22,6 +23,15 @@ private:
    int availible;
    int productToBuyId;
    int purchased;
+
+   list<string> travels;
+
+   /**
+    * @brief Añade la última ciudad del viaje a los viajes realizados.
+    * \pre Cierto
+    * \post "city_name" se ha añadido como último viaje realizado.
+   */
+  void addTravel(string city_name);
 
 public:
 
