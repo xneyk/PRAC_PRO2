@@ -31,14 +31,6 @@ private:
    // Es en este conjunto de ciudades donde se relaciona a cada ciudad con su identificador
    // correspondiente.
 
-
-   /**
-    * @brief Obtiene una ciudad del río dado su nombre (identificador)
-    * \pre La ciudad existe, pertenece al parámetro implícito
-    * \post Retorna la instancia de dicha ciudad.
-   */
-   City getCity(string city_name) const;
-
    /**
     * @brief Añade la última ciudad del viaje a los viajes realizados.
     * \pre Cierto
@@ -166,9 +158,23 @@ public:
    /**
     * @brief Output del contenido de una ciudad del parámetro implícito
     * \pre La ciudad se encuentra en el parámetro implícito
-    * \post Se ha dejado en el canal estandard de salida el nombre de la ciudad segido de su inventario.
+    * \post Se ha dejado en el canal estandard de salida el nombre de la ciudad seguido de su inventario.
    */
    void printCityWithId(string city_name) const;
+
+   /**
+    * @brief Output del peso y volumen total de una ciudad del parámetro implícito.
+    * \pre La ciudad se encuentra en el parámetro implícito
+    * \post Se ha dejado en el canal estandard de salida el peso y volumen total de la ciudad.
+   */
+   void printCityWeightAndVolume(string city_name) const;
+
+   /**
+    * @brief Output del estado de un producto en el inventario de una ciudad del parámetro implícito.
+    * \pre La ciudad se encuentra en el parámetro implícito, el producto se encuentra en su inventario.
+    * \post Se ha dejado en el canal estandard de salida cuantas uds. tiene y cuantas uds. necesita la ciudad de dicho producto.
+   */
+   void printProductStatsById(string city_name, int id);
 
    // SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
    void printRiver();

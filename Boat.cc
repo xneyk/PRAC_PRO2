@@ -63,6 +63,7 @@ void Boat::print() {
    list<string>::const_iterator travel = travels.begin();
    while (travel != travels.end()) {
       cout << *travel << endl;
+      ++travel;
    }
 }
 

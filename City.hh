@@ -101,6 +101,13 @@ public:
    */
    int getNeededById(int id) const;
 
+   /**
+    * @brief Consultora del estado de un producto dentro del inventario.
+    * \pre El producto con id "id" se encuentra dentro del inventario del parámetro implícito.
+    * \post Se retorna los datos de ese producto dentro de dicho inventario.
+   */
+   ProductInventoryStats getProductStats(int id) const;
+
    // <---------->
    // NO SOY DEMASIADO FAN DE QUE LA LECTURA Y ESCRITURA DE UN TIPO DE DATOS VAYAN LIGADOS A LA CLASE
    

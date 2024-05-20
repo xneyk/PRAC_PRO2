@@ -35,3 +35,7 @@ int ProductSet::getVolumeById(int id) const {
    // --> nunca va a pasar los errores se controlan en main.
    return setOfProducts.at(id).getVolume();
 }
+
+void ProductSet::printProductById(int id) const {
+   setOfProducts.at(id).print();
+}

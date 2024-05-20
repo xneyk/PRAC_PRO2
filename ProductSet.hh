@@ -74,6 +74,15 @@ public:
     * \post Retorna el volument del producto con con identificador "id" contenido en el parámetro ímplicito
    */
    int getVolumeById(int id) const;
+
+   // I / O
+
+   /**
+    * @brief Output de un producto contenido por el parámetro implícito.
+    * \pre El parámetro implícito contiene el producto.
+    * \post Se ha escrito su peso y volumen por el canal estandar.
+   */
+   void printProductById(int id) const;
 };
 
 #endif

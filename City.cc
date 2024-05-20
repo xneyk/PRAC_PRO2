@@ -54,6 +54,10 @@ int City::getNeededById(int id) const {
    return inventory.at(id).getNeeded();
 }
 
+ProductInventoryStats City::getProductStats(int id) const {
+   return inventory.at(id);
+}
+
 
 
 // IO (Lectura - Escritura)

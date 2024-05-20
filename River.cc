@@ -68,6 +68,17 @@ void River::printCityWithId(string city_name) const {
    citySet.at(city_name).printInventory();
 }
 
+void River::printCityWeightAndVolume(string city_name) const {
+   City city = citySet.at(city_name);
+   cout << city.getTotalWeight() << city.getTotalVolume() << endl;
+}
+
+void River::printProductStatsById(string city_name, int id) {
+   City city = citySet.at(city_name);
+   cout << city.getProductStats(id).getOwned() << ' ';
+   cout << city.getProductStats(id).getNeeded() << endl;
+}
+
 // SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
 void River::printRiver() {
    structure.setOutputFormat(BinTree<string>::VISUALFORMAT);
@@ -84,8 +95,4 @@ BinTree<string> River::buildRiverChildren() {
       return BinTree<string>(city, buildRiverChildren(), buildRiverChildren());
    }
    return BinTree<string>();
-}
-
-City River::getCity(string city_name) const {
-   return citySet.at(city_name);
 }
