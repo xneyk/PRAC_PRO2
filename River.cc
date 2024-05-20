@@ -13,48 +13,68 @@ bool River::existsCityWithId(string name) const {
    return citySet.find(name) != citySet.end();
 }
 
+bool River::cityHasProduct(string city_name, int id) const {
+   return citySet.at(city_name).hasProduct(id);
+}
+
 int River::getProductOwnedById(string city_name, int product_id) const {
-   return getCity(city_name).getOwnedById(product_id);
+   return citySet.at(city_name).getOwnedById(product_id);
 }
 
 int River::getProductNeededById(string city_name, int product_id) const {
-   return getCity(city_name).getNeededById(product_id);
+   return citySet.at(city_name).getNeededById(product_id);
 }
 
 // Modificadoras
 
 void River::addProduct(string city_name, int id, const ProductSet &product_set, int owned, int needed) {
-   getCity(city_name).addProduct(id, product_set, owned, needed);
+   citySet.at(city_name).addProduct(id, product_set, owned, needed);
 }
 
 void River::setProductStatus(string city_name, int id, const ProductSet &product_set, int new_owned, int new_needed) {
-   getCity(city_name).setProductStatus(id, product_set, new_owned, new_needed);
+   citySet.at(city_name).setProductStatus(id, product_set, new_owned, new_needed);
 }
 
 void River::removeProduct(string city_name, int id, const ProductSet &product_set) {
-   getCity(city_name).removeProduct(id, product_set);
+   citySet.at(city_name).removeProduct(id, product_set);
 }
 
-void River::trade(string cityA, string cityB) {
-}
+// void River::trade(string cityA, string cityB) {
+// }
 
-void River::redistribute() {
-}
+// void River::redistribute() {
+// }
 
-void River::travel() {
-}
+// void River::travel() {
+// }
+
+// I / O
 
 void River::read() {
    string city;
-   string trash;
    cin >> city;
    if (city != "#") {
       citySet[city] = City();
       structure = BinTree<string>(city, buildRiverChildren(), buildRiverChildren());
    }
-   // Si hay un '#' condición del río hay exactamente uno más, este hay que consumirlo.
-   getline(cin, trash, '#');
 }
+
+
+void River::readCityWithId(string city_name, const ProductSet &product_set) {
+   citySet.at(city_name).read(product_set);
+}
+
+void River::printCityWithId(string city_name) const {
+   citySet.at(city_name).printInventory();
+}
+
+// SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
+void River::printRiver() {
+   structure.setOutputFormat(BinTree<string>::VISUALFORMAT);
+   cout << structure << endl;
+}
+
+// Métodos Privados (para hacer más legible/limpia la implementación)
 
 BinTree<string> River::buildRiverChildren() {
    string city;
@@ -63,16 +83,9 @@ BinTree<string> River::buildRiverChildren() {
       citySet[city] = City();
       return BinTree<string>(city, buildRiverChildren(), buildRiverChildren());
    }
+   return BinTree<string>();
 }
-
-// Métodos Privados (para hacer más legible/limpia la implementación)
 
 City River::getCity(string city_name) const {
    return citySet.at(city_name);
-}
-
-// SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
-void River::printRiver() {
-   structure.setOutputFormat(BinTree<string>::VISUALFORMAT);
-   cout << structure << endl;
 }

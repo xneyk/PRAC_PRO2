@@ -15,7 +15,6 @@ using namespace std;
 #endif
 
 #include "City.hh"
-#include "Boat.hh"
 
 /**
  * @class River
@@ -29,7 +28,7 @@ private:
    // Observación: Notad que solamente se trata de sus identificadores, la información
    // de cada ciudad se almacena en una clase "City".
    map<string, City> citySet; // Tal vez seria buena idea abstraerlo en una clase CitySet.
-   // Es en este conjunto de ciudades donde se relaciona a cada clase con su identificador
+   // Es en este conjunto de ciudades donde se relaciona a cada ciudad con su identificador
    // correspondiente.
 
 
@@ -70,9 +69,17 @@ public:
    /**
     * \brief Comprueva si en el rio existe una ciudad con identificador "name".
     * \pre Cierto.
-    * \post retorna "true" en caso de exisitir, "false" en caso contrario.
+    * \post Retorna "true" en caso de exisitir, "false" en caso contrario.
    */
    bool existsCityWithId(string name) const;
+
+   /**
+    * @brief Comprueva si la ciudad "city_name" tiene el producto "id" en su inventario.
+    * \warning Se considera que lo tiene aunque sus unidades sean 0.
+    * \pre La ciudad "city_name" existe.
+    * \post Retorna retorna "true" en caso de contenterlo, "false" en caso contrario.
+   */
+   bool cityHasProduct(string city_name, int id) const;
 
    /**
     * @brief Consultora de las unidades del producto "id" que tiene la ciudad "city_name".
@@ -149,7 +156,19 @@ public:
    */
    void read();
 
-   void printBoat();
+   /**
+    * @brief Input de una ciudad por el canal estándar.
+    * \pre En el canal estándar se encuentra la información del inventario en el siguiente formato: se lee un número indicando cuatos productos se añaden. A continuación vienen n lineas de "product_id" "owned" "needed". "needed" > 0.
+    * \post Se ha leido la información pertinente de la ciudad y todos los datos se encuentran disponibles en el parámetro implicito.
+   */
+   void readCityWithId(string city_name, const ProductSet &product_set);
+
+   /**
+    * @brief Output del contenido de una ciudad del parámetro implícito
+    * \pre La ciudad se encuentra en el parámetro implícito
+    * \post Se ha dejado en el canal estandard de salida el nombre de la ciudad segido de su inventario.
+   */
+   void printCityWithId(string city_name) const;
 
    // SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
    void printRiver();

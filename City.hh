@@ -67,18 +67,25 @@ public:
    // Consultoras
 
    /**
+    * @brief Comprueva si el parámetro implícito contiene el producto con id "id".
+    * \pre Cierto.
+    * \post Retorna "true" en caso de contenerlo, "false" en caso contrario.
+   */
+   bool hasProduct(int id) const;
+
+   /**
     * @brief Consultora de peso total de un inventario
     * \pre Cierto.
     * \post Retorna el peso total del parámetro implícito
    */
-   int getTotalWeight();
+   int getTotalWeight() const;
 
    /**
     * @brief Consultora de volumen total de un inventario
     * \pre Cierto.
     * \post Retorna el volumen total del parámetro implícito
    */
-   int getTotalVolume();
+   int getTotalVolume() const;
 
    /**
     * @brief Consultora de las unidades del producto "id" que tiene el parámetro implícito.
@@ -100,9 +107,9 @@ public:
    // IO (Lectura - Escritura)
 
    /**
-    * @brief Input de un inventario por el canal estándar.
+    * @brief Input de una ciudad por el canal estándar.
     * \pre En el canal estándar se encuentra la información de un inventario en el siguiente formato: se lee un número indicando cuatos productos se añaden. A continuación vienen n lineas de "product_id" "owned" "needed". "needed" > 0.
-    * \post Se ha leido la información pertinente del inventario y todos los datos se encuentran disponibles en el parámetro implicito.
+    * \post Se ha leido la información pertinente de la ciudad y todos los datos se encuentran disponibles en el parámetro implicito.
    */
    void read(const ProductSet &product_set);
 
@@ -110,7 +117,7 @@ public:
    /**
     * @brief Output de un inventario por el canal estándar.
     * \pre Cierto.
-    * \post Se he dejado en el canal estándar la información del inventario en el formato pertinente: "product_id" "owned" "needed", para cada producto del inventario.
+    * \post Se he dejado en el canal estándar la información del inventario en el formato pertinente: "product_id" "owned" "needed", para cada producto del inventario, seguido de su peso y volumen total.
    */
    void printInventory() const;
    // <---------->

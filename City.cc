@@ -34,11 +34,15 @@ void City::removeProduct(int id, const ProductSet &product_set) {
 
 // Consultoras
 
-int City::getTotalWeight() {
+bool City::hasProduct(int id) const {
+   return inventory.find(id) != inventory.end();
+}
+
+int City::getTotalWeight() const {
    return totalWeight;
 }
 
-int City::getTotalVolume() {
+int City::getTotalVolume() const {
    return totalVolume;
 }
 
@@ -73,4 +77,5 @@ void City::printInventory() const {
       cout << inventory_line->second.getNeeded() << endl;
       ++inventory_line;
    }
+   cout << getTotalWeight() << ' ' << getTotalVolume() << endl;
 }
