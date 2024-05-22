@@ -32,7 +32,7 @@ void City::removeProduct(int id, const ProductSet &product_set) {
    totalVolume -= old_owned*product_set.getVolumeById(id);
 }
 
-void City::trade(City &visitor_city) {
+void City::trade(City &visitor_city, const ProductSet &product_set) {
    map<int, ProductInventoryStats>::iterator visitor_product = visitor_city.inventory.begin();
    map<int, ProductInventoryStats>::iterator local_product = inventory.begin();
 
@@ -56,6 +56,16 @@ void City::trade(City &visitor_city) {
 
             local_product->second.setOwned(local_product->second.getOwned() - transacted);
             visitor_product->second.setOwned(visitor_product->second.getOwned() + transacted);
+            
+            // Recalculamos el peso y volumen total de ambas ciudades.
+            int product_weigth = product_set.getWeightById(local_id);
+            int product_volume = product_set.getVolumeById(local_id);
+
+            totalWeight -= transacted*product_weigth;
+            totalVolume -= transacted*product_volume;
+            visitor_city.totalWeight += transacted*product_weigth;
+            visitor_city.totalVolume += transacted*product_volume;
+            
          }
          else if (local_excess < 0 and visitor_excess > 0) {
             // Se transacciona el excedente más pequeño, ya que si la local necesita más de lo que
@@ -66,13 +76,22 @@ void City::trade(City &visitor_city) {
 
             local_product->second.setOwned(local_product->second.getOwned() + transacted);
             visitor_product->second.setOwned(visitor_product->second.getOwned() - transacted);
-         }
 
+            // Recalculamos el peso y volumen total de ambas ciudades.
+            int product_weigth = product_set.getWeightById(local_id);
+            int product_volume = product_set.getVolumeById(local_id);
+            // Toda esta parte del codigo posiblemente sea extraible a un metodo privado.
+            totalWeight += transacted*product_weigth;
+            totalVolume += transacted*product_volume;
+            visitor_city.totalWeight -= transacted*product_weigth;
+            visitor_city.totalVolume -= transacted*product_volume;
+         }
+         // FA FALTA ACTUALITZAR ELS PESOS Y VOLUMS DE LES CIUTATS!!!
          ++local_product;
          ++visitor_product;
       }
-      else if (local_id > visitor_id) ++visitor_id;
-      else ++local_id; // (local_id < visitor_id)
+      else if (local_id > visitor_id) ++visitor_product;
+      else ++local_product; // (local_id < visitor_id)
    }
 }
 
