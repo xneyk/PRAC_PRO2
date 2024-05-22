@@ -39,11 +39,28 @@ void River::removeProduct(string city_name, int id, const ProductSet &product_se
    citySet.at(city_name).removeProduct(id, product_set);
 }
 
-// void River::trade(string cityA, string cityB) {
-// }
+void River::trade(string city_A, string city_B, const ProductSet &product_set) {
+   citySet.at(city_A).trade(citySet.at(city_B), product_set);
+}
 
-// void River::redistribute() {
-// }
+void River::redistribute(const ProductSet &product_set) {
+   // Solamente se tiene que comprobar que uno de los hijos no esta vacio, ya que
+   // por definición de rio: Cada ciudad o tiene una ciudad a la derecha y una a la izquierda
+   // o no tiene ninguna.
+   if (not (structure.empty() or structure.left().empty())) {
+      string root = structure.value();
+      string right_neighbor = structure.left().value();
+      string left_neighbor = structure.right().value();
+
+      citySet.at(root).trade(citySet.at(right_neighbor), product_set);
+      citySet.at(root).trade(citySet.at(left_neighbor), product_set);
+
+      // Se sigue la redistrubución por el lado derecho (río arriba) del río.
+      redistribute(structure.left(), product_set);
+      // Se sigue la redistrubución por el lado izquierdo (río arriba) del río.
+      redistribute(structure.right(), product_set);
+   }
+}
 
 // void River::travel() {
 // }
@@ -74,9 +91,9 @@ void River::printCityWeightAndVolume(string city_name) const {
 }
 
 void River::printProductStatsById(string city_name, int id) {
-   City city = citySet.at(city_name);
-   cout << city.getProductStats(id).getOwned() << ' ';
-   cout << city.getProductStats(id).getNeeded() << endl;
+   ProductInventoryStats product_stats = citySet.at(city_name).getProductStats(id);
+   cout << product_stats.getOwned() << ' ';
+   cout << product_stats.getNeeded() << endl;
 }
 
 // SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
@@ -95,4 +112,25 @@ BinTree<string> River::buildRiverChildren() {
       return BinTree<string>(city, buildRiverChildren(), buildRiverChildren());
    }
    return BinTree<string>();
+}
+
+void River::redistribute(BinTree<string> structure, const ProductSet &product_set) {
+   // Solamente se tiene que comprobar que uno de los hijos no esta vacio, ya que
+   // por definición de rio: Cada ciudad o tiene una ciudad a la derecha y una a la izquierda
+   // o no tiene ninguna.
+
+   // No se comprueva que la raíz no sea vacia puesto que es la precondición.
+   if (not structure.left().empty()) {
+      string root = structure.value();
+      string right_neighbor = structure.left().value();
+      string left_neighbor = structure.right().value();
+
+      citySet.at(root).trade(citySet.at(right_neighbor), product_set);
+      citySet.at(root).trade(citySet.at(left_neighbor), product_set);
+
+      // Se sigue la redistrubución por el lado derecho (río arriba) del río.
+      redistribute(structure.left(), product_set);
+      // Se sigue la redistrubución por el lado izquierdo (río arriba) del río.
+      redistribute(structure.right(), product_set);
+   }
 }

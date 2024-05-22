@@ -44,6 +44,15 @@ private:
     * \post Se ha sobre escrito parámetro implícito con la nueva estructura de la cuenta. Todas sus ciudades han quedado con el inventario vacio.
    */
    BinTree<string> buildRiverChildren();
+   
+   /**
+    * @brief Método auxiliar para la redistribución.
+    * 
+    * Recibe la estructura del subarbol sobre el que se debe hacer la redistribución.
+    * \pre La raíz de structure no es vacia.
+    * \post Todas las ciudades han comerciado con sus vecinos immediados. primero con la situada a la derecha y luego con la situada a la izquierda.
+   */
+   void redistribute(BinTree<string> structure, const ProductSet &product_set);
 
 public:
 
@@ -94,7 +103,7 @@ public:
     * \pre El producto con id "id" existe y no se encuentra dentro del inventario de la ciudad "city_name". "owned" >= 0 y "needed" > 0.
     * \post En el inventario de la ciudad "city_name" hay un nuevo producto con id "id". La ciudad "city_name". tiene "owned" uds. del producto y necesita "needed" uds. del producto.
    */
-   void addProduct(string city_name, int id, const ProductSet& product_set, int owned, int needed);
+   void addProduct(string city_name, int id, const ProductSet &product_set, int owned, int needed);
 
    /**
     * @brief Modifica los datos del producto con identificador "id" en el inventario de la ciudad "city_name".
@@ -103,14 +112,14 @@ public:
     * \pre El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". "new_owned" >= 0 y "new_needed" > 0.
     * \post La ciudad "city_name" tiene "new_owned" uds. del producto "id" y necesita "new_needed" uds.
    */
-   void setProductStatus(string city_name, int id, const ProductSet& product_set, int new_owned, int new_needed);
+   void setProductStatus(string city_name, int id, const ProductSet &product_set, int new_owned, int new_needed);
 
    /**
     * @brief Elimina el producto "id" del inventario de la ciudad "city_name"
     * \pre El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". "city_name" se encuentra en el parámetro implícito.
     * \post El inventario de la ciudad "city_name" ya no contiene el producto "id". Todas las uds de dicho producto que tenia la ciudad han desaparecido.
    */
-   void removeProduct(string city_name, int id, const ProductSet& product_set);
+   void removeProduct(string city_name, int id, const ProductSet &product_set);
 
    /**
     * @brief Dos ciudades (existentes) del rio comercian entre ellas.
@@ -119,16 +128,16 @@ public:
     * \pre "cityA" y "cityB" son los identificadores de dos ciudades EXISTENTES en el parámetro implícito.
     * \post Las dos ciudades han intercambiado productos. Ninguna de las dos se queda con menos unidades de las necesarias si la cantidad de dicho producto era superior que las que necesita.
    */
-   void trade(string cityA, string cityB);
+   void trade(string city_A, string city_B, const ProductSet &product_set);
 
    /**
     * @brief A partir de la ciudad de la desembocadura, cada ciudad comerciará con las dos ciudades inmediatamente situadas río arriba.
     * 
     * Primero comerciará la ciudad de la desembocadura con la ciudad río arriba a mano derecha y luego con la ciudad río arriba a mano izquierda, y así sucesivamente, hasta llegar a las ciudades de los nacimientos.
     * \pre Cierto.
-    * \post Todas las ciudades han comerciado con sus vecinos immediados. primero con la situada a la derecha y luego con la situada a la izquierda
+    * \post Todas las ciudades han comerciado con sus vecinos immediados. primero con la situada a la derecha y luego con la situada a la izquierda.
    */
-   void redistribute();
+   void redistribute(const ProductSet &product_set);
 
    /**
     * @brief Acción de comerció entre un barco y una ruta ciudades del Rio. 
