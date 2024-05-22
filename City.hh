@@ -71,7 +71,7 @@ public:
     * \pre Cierto.
     * \post El parámetro implícito ha realizado todas las compra-ventas posibles con la otra ciudad.
    */
-   void trade(City &visitor_city);
+   void trade(City &visitor_city, const ProductSet &product_set);
 
    // Consultoras
 

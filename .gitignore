@@ -10,9 +10,9 @@ DOC
 sample
 .vscode/settings.json
 .vscode
+test
 # ------------------------------
 # Files
 # ------------------------------
-test_river.cc
-test_river.txt
+
 # ------------------------------
