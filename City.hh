@@ -64,6 +64,15 @@ public:
    */
    void removeProduct(int id, const ProductSet &product_set);
 
+   /**
+    * @brief El parámetro implícito comercia con otra ciudad.
+    * 
+    * El parámetro implícito le da a la ciudad todos los productos que le sobren hasta alcanzar, si es posible, los que la otra necesite, y viceversa.
+    * \pre Cierto.
+    * \post El parámetro implícito ha realizado todas las compra-ventas posibles con la otra ciudad.
+   */
+   void trade(City &visitor_city);
+
    // Consultoras
 
    /**
@@ -108,9 +117,6 @@ public:
    */
    ProductInventoryStats getProductStats(int id) const;
 
-   // <---------->
-   // NO SOY DEMASIADO FAN DE QUE LA LECTURA Y ESCRITURA DE UN TIPO DE DATOS VAYAN LIGADOS A LA CLASE
-   
    // IO (Lectura - Escritura)
 
    /**
@@ -127,7 +133,6 @@ public:
     * \post Se he dejado en el canal estándar la información del inventario en el formato pertinente: "product_id" "owned" "needed", para cada producto del inventario, seguido de su peso y volumen total.
    */
    void printInventory() const;
-   // <---------->
 };
 
 #endif

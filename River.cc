@@ -74,9 +74,9 @@ void River::printCityWeightAndVolume(string city_name) const {
 }
 
 void River::printProductStatsById(string city_name, int id) {
-   City city = citySet.at(city_name);
-   cout << city.getProductStats(id).getOwned() << ' ';
-   cout << city.getProductStats(id).getNeeded() << endl;
+   ProductInventoryStats product_stats = citySet.at(city_name).getProductStats(id);
+   cout << product_stats.getOwned() << ' ';
+   cout << product_stats.getNeeded() << endl;
 }
 
 // SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.

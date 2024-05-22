@@ -32,6 +32,50 @@ void City::removeProduct(int id, const ProductSet &product_set) {
    totalVolume -= old_owned*product_set.getVolumeById(id);
 }
 
+void City::trade(City &visitor_city) {
+   map<int, ProductInventoryStats>::iterator visitor_product = visitor_city.inventory.begin();
+   map<int, ProductInventoryStats>::iterator local_product = inventory.begin();
+
+   // Vamos a iterar los dos inventarios a la vez de arriba a abajo, aprovechando que estos estan
+   // ordenados de menor a mayor indice, podremos ir avanzando los dos "montones" individualmente
+   // e ir encontrando indices que coincidan.
+   while (local_product != inventory.end() and visitor_product != visitor_city.inventory.end()) {
+      // Guardamos los identificadores de cada producto en una variable para mayor legibilidad.
+      int local_id = local_product->first, visitor_id = visitor_product->first;
+      
+      if (local_id == visitor_id) { // Las dos ciudades tienen el mismo producto ==> pueden comerciar.
+         int local_excess = local_product->second.getOwned() - local_product->second.getNeeded();
+         int visitor_excess = visitor_product->second.getOwned() - visitor_product->second.getNeeded();
+
+         if (local_excess > 0 and visitor_excess < 0) {
+            // Se transacciona el excedente más pequeño, ya que si la visitante necesita más de lo que
+            // la local tiene, esta le dará todo su excedente. Por otro lado, si el excedente de la local
+            // es mayor que lo que le falta a la visitante para llegar a lo que necesita, la local le dará
+            // solamente esta cantidad.
+            int transacted = min(local_excess, -visitor_excess);
+
+            local_product->second.setOwned(local_product->second.getOwned() - transacted);
+            visitor_product->second.setOwned(visitor_product->second.getOwned() + transacted);
+         }
+         else if (local_excess < 0 and visitor_excess > 0) {
+            // Se transacciona el excedente más pequeño, ya que si la local necesita más de lo que
+            // la visitante tiene, esta le dará todo su excedente. Por otro lado, si el excedente de la visitante
+            // es mayor que lo que le falta a la local para llegar a lo que necesita, la visitante le dará
+            // solamente esta cantidad.
+            int transacted = min(-local_excess, visitor_excess);
+
+            local_product->second.setOwned(local_product->second.getOwned() + transacted);
+            visitor_product->second.setOwned(visitor_product->second.getOwned() - transacted);
+         }
+
+         ++local_product;
+         ++visitor_product;
+      }
+      else if (local_id > visitor_id) ++visitor_id;
+      else ++local_id; // (local_id < visitor_id)
+   }
+}
+
 // Consultoras
 
 bool City::hasProduct(int id) const {
