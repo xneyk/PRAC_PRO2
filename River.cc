@@ -127,7 +127,10 @@ BinTree<string> River::buildRiver() {
       ++total_cities;
       citySet[city] = City();
       cityPreorder[city] = total_cities; // Relacionamos cada ciudad con su posición en el preorden.
-      return BinTree<string>(city, buildRiver(), buildRiver());
+      
+      BinTree<string> left_child = buildRiver();
+      BinTree<string> right_child = buildRiver();
+      return BinTree<string>(city, left_child, right_child);
    }
    return BinTree<string>();
 }
@@ -227,12 +230,12 @@ void River::trade(BinTree<string> structure, string last_city, Boat &boat, const
       string root_city = structure.value();
       transaction(root_city, boat, product_set);
 
-      int last_city_preorder_id = cityPreorder.at(last_city);
+      int searching_id = cityPreorder.at(last_city);
 
-      if (cityPreorder.at(root_city) != last_city_preorder_id) {
+      if (cityPreorder.at(root_city) != searching_id) {
          if (not structure.right().empty()) { // ==> structure.left().empty() false.
             int right_city_preorder_id = cityPreorder.at(structure.right().value());
-            if (last_city_preorder_id >= right_city_preorder_id) {
+            if (searching_id >= right_city_preorder_id) {
                trade(structure.right(), last_city, boat, product_set);
             } else {
                trade(structure.left(), last_city, boat, product_set);
