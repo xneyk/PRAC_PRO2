@@ -37,5 +37,6 @@ int ProductSet::getVolumeById(int id) const {
 }
 
 void ProductSet::printProductById(int id) const {
+   cout << id << ' ';
    setOfProducts.at(id).print();
 }

@@ -5,6 +5,7 @@
 River::River() {
    structure = BinTree<string>();
    citySet = map<string, City>();
+   travels = list<string>();
 }
 
 // Consultoras
@@ -62,20 +63,28 @@ void River::redistribute(const ProductSet &product_set) {
    }
 }
 
-// void River::travel() {
-// }
+int River::travel(Boat boat, const ProductSet &product_set) {
+   Travel current_travel(boat);
+   Travel best_travel(current_travel);
+
+   findOptimalRoute(structure, current_travel, best_travel);
+   // El mejor viaje es best_travel. Es decir, el viaje que acaba en la ciudad best_travel.getLastTrade()
+
+   trade(structure, best_travel.getLastTrade(), boat, product_set);
+   // Va a ir comerciando por la ruta que acaba en "best_travel.getLastTrade()" hasta encontrar a esa ciudad.
+
+   addTravel(best_travel.getLastTrade()); // Se añade el viaje a la lista.
+   
+   return boat.getAvailible() - best_travel.getStock() + boat.getBuyTarget() - best_travel.getBuyTarget();
+}
 
 // I / O
 
 void River::read() {
-   string city;
-   cin >> city;
-   if (city != "#") {
-      citySet[city] = City();
-      structure = BinTree<string>(city, buildRiverChildren(), buildRiverChildren());
-   }
+   (*this) = River();
+   // Al leer un rio es como si se creara uno nuevo.
+   structure = buildRiver();
 }
-
 
 void River::readCityWithId(string city_name, const ProductSet &product_set) {
    citySet.at(city_name).read(product_set);
@@ -87,7 +96,7 @@ void River::printCityWithId(string city_name) const {
 
 void River::printCityWeightAndVolume(string city_name) const {
    City city = citySet.at(city_name);
-   cout << city.getTotalWeight() << city.getTotalVolume() << endl;
+   cout << city.getTotalWeight() << ' ' << city.getTotalVolume() << endl;
 }
 
 void River::printProductStatsById(string city_name, int id) {
@@ -104,12 +113,18 @@ void River::printRiver() {
 
 // Métodos Privados (para hacer más legible/limpia la implementación)
 
-BinTree<string> River::buildRiverChildren() {
+void River::addTravel(string city_name) {
+   travels.push_back(city_name);
+}
+
+BinTree<string> River::buildRiver() {
    string city;
    cin >> city;
    if (city != "#") {
+      ++total_cities;
       citySet[city] = City();
-      return BinTree<string>(city, buildRiverChildren(), buildRiverChildren());
+      cityPreorder[city] = total_cities; // Relacionamos cada ciudad con su posición en el preorden.
+      return BinTree<string>(city, buildRiver(), buildRiver());
    }
    return BinTree<string>();
 }
@@ -132,5 +147,94 @@ void River::redistribute(BinTree<string> structure, const ProductSet &product_se
       redistribute(structure.left(), product_set);
       // Se sigue la redistrubución por el lado izquierdo (río arriba) del río.
       redistribute(structure.right(), product_set);
+   }
+}
+
+void River::findOptimalRoute(BinTree<string> structure, Travel current_travel, Travel &best_travel) const {
+   if (not structure.empty()) {
+      current_travel.increaseLength();
+      tryTransaction(structure.value(), current_travel);
+      if (current_travel.betterTravelThan(best_travel)) best_travel = current_travel;
+      if (not (current_travel.objectiveAchived() or structure.left().empty())) {
+         findOptimalRoute(structure.left(), current_travel, best_travel);
+         findOptimalRoute(structure.right(), current_travel, best_travel);
+      }
+   }
+   // no se actualiza ningún valor pues se ha llegado al final de la ruta.
+}
+
+void River::tryTransaction(string city_name, Travel &current_travel) const {
+   City city = citySet.at(city_name);
+   int for_sale_id = current_travel.getProductForSaleId();
+   int to_buy_id = current_travel.getProductToBuyId();
+
+   int sold = 0, bought = 0;
+   if (city.hasProduct(for_sale_id)) { // Posible compra de la ciudad
+      int excess = city.getOwnedById(for_sale_id) - city.getNeededById(for_sale_id);
+      if (excess < 0) {
+         sold = min(current_travel.getStock(), -excess);
+      }
+   }
+   if (city.hasProduct(to_buy_id)) { // Posible venta de la ciudad
+      int excess = city.getOwnedById(to_buy_id) - city.getNeededById(to_buy_id);
+      if (excess > 0) {
+         bought = min(current_travel.getBuyTarget(), excess);
+      }
+   }
+
+   if (not (sold == 0 and bought == 0)) {
+      current_travel.updateStatus(sold, bought);
+      current_travel.setLastTrade(city_name);
+   }
+}
+
+void River::transaction(string city_name, Boat &boat, const ProductSet &product_set) {
+   int for_sale_id = boat.getProductForSaleId();
+   int to_buy_id = boat.getProductToBuyId();
+
+   int sold = 0, bought = 0;
+   if (citySet.at(city_name).hasProduct(for_sale_id)) { // Posible compra de la ciudad
+      ProductInventoryStats for_sale_stats = citySet.at(city_name).getProductStats(for_sale_id);
+      int owned = for_sale_stats.getOwned();
+      int needed = for_sale_stats.getNeeded();
+      int excess =  owned - needed;
+      if (excess < 0) { // La ciudad quiere comprar el producto (le hace falta)
+         sold = min(boat.getAvailible(), -excess);
+         
+         citySet.at(city_name).setProductStatus(for_sale_id, product_set, owned + sold, needed);
+         boat.sellProduct(sold);
+      }
+   }
+   if (citySet.at(city_name).hasProduct(to_buy_id)) { // Posible venta de la ciudad
+      ProductInventoryStats to_buy_stats = citySet.at(city_name).getProductStats(to_buy_id);
+      int owned = to_buy_stats.getOwned();
+      int needed = to_buy_stats.getNeeded();
+      int excess =  owned - needed;
+      if (excess > 0) { // A la ciudad le sobran productos
+         bought = min(boat.getBuyTarget(), excess);
+         
+         citySet.at(city_name).setProductStatus(to_buy_id, product_set, owned - bought, needed);
+         boat.buyProduct(bought);
+      }
+   }
+}
+
+void River::trade(BinTree<string> structure, string last_city, Boat &boat, const ProductSet &product_set) {
+   if (not structure.empty()) {
+      string root_city = structure.value();
+      transaction(root_city, boat, product_set);
+
+      int last_city_preorder_id = cityPreorder.at(last_city);
+
+      if (cityPreorder.at(root_city) != last_city_preorder_id) {
+         if (not structure.right().empty()) { // ==> structure.left().empty() false.
+            int right_city_preorder_id = cityPreorder.at(structure.right().value());
+            if (last_city_preorder_id >= right_city_preorder_id) {
+               trade(structure.right(), last_city, boat, product_set);
+            } else {
+               trade(structure.left(), last_city, boat, product_set);
+            }
+         }
+      }
    }
 }

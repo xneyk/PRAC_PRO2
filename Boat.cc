@@ -6,22 +6,22 @@ Boat::Boat() {
    productForSaleId = 0;
    availible = 0;
    productToBuyId = 0;
-   purchased = 0;
+   buy_target = 0;
 }
 
-Boat::Boat(int productForSaleId, int availible, int productToBuyId, int purchased) {
+Boat::Boat(int productForSaleId, int availible, int productToBuyId, int buy_target) {
    this->productForSaleId = productForSaleId;
    this->availible = availible;
    this->productToBuyId = productToBuyId;
-   this->purchased = purchased;
+   this->buy_target = buy_target;
 }
 
-Boat::Boat(const Boat &boat) {
-   productForSaleId = boat.productForSaleId;
-   availible = boat.availible;
-   productToBuyId = boat.productToBuyId;
-   purchased = boat.purchased;
-}
+// Boat::Boat(const Boat &boat) {
+//    productForSaleId = boat.productForSaleId;
+//    availible = boat.availible;
+//    productToBuyId = boat.productToBuyId;
+//    buy_target = boat.buy_target;
+// }
 
 // Modificadoras
 
@@ -30,45 +30,34 @@ void Boat::sellProduct(int amount) {
 }
 
 void Boat::buyProduct(int amount) {
-   purchased += amount;
+   buy_target -= amount;
 }
 
-void Boat::setBoat(int productForSaleId, int availible, int productToBuyId, int purchased) {
-   (*this) = Boat(productForSaleId, availible, productToBuyId, purchased);
+void Boat::setBoat(int productForSaleId, int availible, int productToBuyId, int buy_target) {
+   (*this) = Boat(productForSaleId, availible, productToBuyId, buy_target);
 }
 
 // Consultoras
 
-int Boat::getAvailible() {
+int Boat::getAvailible() const {
    return availible;
 }
 
-int Boat::getPurchased() {
-   return purchased;
+int Boat::getBuyTarget() const {
+   return buy_target;
 }
 
-int Boat::getProductToBuyId() {
+int Boat::getProductToBuyId() const {
    return productToBuyId;
 }
 
-int Boat::getProductForSaleId() {
+int Boat::getProductForSaleId() const {
    return productForSaleId;
 }
 
 // I/O
 
 void Boat::print() {
-   cout << productForSaleId << ' ' << availible << ' ' << productToBuyId << ' ' << purchased;
+   cout << productForSaleId << ' ' << availible << ' ' << productToBuyId << ' ' << buy_target;
    cout << endl;
-   list<string>::const_iterator travel = travels.begin();
-   while (travel != travels.end()) {
-      cout << *travel << endl;
-      ++travel;
-   }
-}
-
-// Métodos privados para mayor legibilidad / limpieza.
-
-void Boat::addTravel(string city_name) {
-   travels.push_front(city_name);
 }

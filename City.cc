@@ -86,7 +86,6 @@ void City::trade(City &visitor_city, const ProductSet &product_set) {
             visitor_city.totalWeight -= transacted*product_weigth;
             visitor_city.totalVolume -= transacted*product_volume;
          }
-         // FA FALTA ACTUALITZAR ELS PESOS Y VOLUMS DE LES CIUTATS!!!
          ++local_product;
          ++visitor_product;
       }

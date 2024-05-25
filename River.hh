@@ -15,6 +15,8 @@ using namespace std;
 #endif
 
 #include "City.hh"
+#include "Boat.hh"
+#include "Travel.hh"
 
 /**
  * @class River
@@ -27,12 +29,22 @@ private:
    // Representa la estructura de la cuenca fluvial
    // Observación: Notad que solamente se trata de sus identificadores, la información
    // de cada ciudad se almacena en una clase "City".
+   
    map<string, City> citySet; // Tal vez seria buena idea abstraerlo en una clase CitySet.
    // Es en este conjunto de ciudades donde se relaciona a cada ciudad con su identificador
    // correspondiente.
 
+   int total_cities;
+   map<string, int> cityPreorder;
+   // Relaciona cada ciudad con su indice del preorden.
+   
+   list<string> travels;
+   // Almacena el nombre de las ciudades donde a acabado cada viaje realizado en el río.
+   // Cada nombre corresponde a un viaje, concretamente el que se ha realizado acabando en dicha ciudad.
+   // Los viajes se mantienen siempre ordenados cronologicamente.
+
    /**
-    * @brief Añade la última ciudad del viaje a los viajes realizados.
+    * @brief Añade la última ciudad del viaje ("city_name") a los viajes realizados.
     * \pre Cierto
     * \post "city_name" se ha añadido como último viaje realizado.
    */
@@ -43,7 +55,7 @@ private:
     * \pre La información del nuevo rio se encuentra en el canal estandard siguiendo el formato específico.
     * \post Se ha sobre escrito parámetro implícito con la nueva estructura de la cuenta. Todas sus ciudades han quedado con el inventario vacio.
    */
-   BinTree<string> buildRiverChildren();
+   BinTree<string> buildRiver();
    
    /**
     * @brief Método auxiliar para la redistribución.
@@ -53,6 +65,33 @@ private:
     * \post Todas las ciudades han comerciado con sus vecinos immediados. primero con la situada a la derecha y luego con la situada a la izquierda.
    */
    void redistribute(BinTree<string> structure, const ProductSet &product_set);
+
+   /**
+    * @brief Encuentra la ruta más provechosa para el barco
+    * \pre "current_travel" contiene el estado del viaje realizado para llegar a la ciudad actual.
+    * \post "best_travel" guarda el mejor viaje realizado hasta el momento.
+   */
+   void findOptimalRoute(BinTree<string> structure, Travel current_travel, Travel &best_travel) const;
+
+   /**
+    * @brief Metodo auxiliar de "findOptimalRoute". Simula la transacción entre barco y ciudad dentro del viaje "current_travel".
+    * \pre "current_travel" contiene el estado del viaje realizado para llegar a la ciudad actual.
+    * \post "current_travel" contiene el estado del viaje realizado una vez se comercia con la ciudad visitada ("city_name").
+   */
+   void tryTransaction(string city_name, Travel &current_travel) const;
+
+   /**
+    * @brief Efectua la transacción entre barco y ciudad
+    * \pre Cierto.
+    * \post La ciudad "city_name" y el barco "boat" han comerciado.
+   */
+   void transaction(string city_name, Boat &boat, const ProductSet &product_set);
+
+   /**
+    * @brief Comercio entre barco y ciudades.
+    * \pre 
+   */
+   void trade(BinTree<string> structure, string last_city, Boat &boat, const ProductSet &product_set);
 
 public:
 
@@ -145,8 +184,9 @@ public:
     * El como se decide en que ruta comerciar en caso que haya más de una ruta igual de provechosa es quedarse con la más corta, y en caso de que tengan la misma longitud, quedarse con la que viene río arriba a mano derecha.
     * \pre Cierto.
     * \post El barco ha comerciado con todas aquellas ciudades del camino que mas provecho le daba.
+    * \return Retorna la cantidad total de elementos transaccionados (vendidos + comprados).
    */
-   void travel();
+   int travel(Boat boat, const ProductSet &product_set);
 
    // I/O
 

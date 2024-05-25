@@ -22,16 +22,7 @@ private:
    int productForSaleId;
    int availible;
    int productToBuyId;
-   int purchased;
-
-   list<string> travels;
-
-   /**
-    * @brief Añade la última ciudad del viaje a los viajes realizados.
-    * \pre Cierto
-    * \post "city_name" se ha añadido como último viaje realizado.
-   */
-  void addTravel(string city_name);
+   int buy_target;
 
 public:
 
@@ -40,7 +31,7 @@ public:
    /**
     * @brief Creadora de barcos no inicializados
     * 
-    * Un barco inicializado es aquel que tiene definidos que producto vende, cual compra, y cuantos dispone de cada uno.
+    * Un barco inicializado es aquel que tiene definidos que producto vende, cual compra, y las cantidades de cada uno.
     * \pre Cierto.
     * \post Se ha creado un barco NO inicializado.
    */
@@ -50,10 +41,10 @@ public:
     * @brief Creadora de barcos inicializados
     * 
     * Un barco inicializado es aquel que tiene definidos que producto vende, cual compra, y cuantos dispone de cada uno.
-    * \pre "productForSaleId" != "productToBuyId" y ambos son productos existentes. "availible" y "purchased" deben ser mayores que cero y al menos uno estirictamente mayor que cero.
-    * \post Se ha creado un barco inicializado. La cantidad de productos "productForSaleId" que tiene el barco es "availible" y la cantidad de productos "productToBuyId" que tiene el barco es "purchased"
+    * \pre "productForSaleId" != "productToBuyId" y ambos son productos existentes. "availible" y "buy_target" deben ser mayores que cero y al menos uno estirictamente mayor que cero.
+    * \post Se ha creado un barco inicializado. La cantidad de productos "productForSaleId" que tiene el barco es "availible" y la cantidad de productos "productToBuyId" que quiere el barco es "buy_target"
    */
-   Boat(int productForSaleId, int availible, int productToBuyId, int purchased);
+   Boat(int productForSaleId, int availible, int productToBuyId, int buy_target);
 
    /**
     * @brief Creadora copiadora de barcos
@@ -62,7 +53,7 @@ public:
     * \pre Cierto.
     * \post Los atributos de la nueva instancia son iguales a los del parámetro de referencia uno a uno.
    */
-   Boat(const Boat &boat);
+   // Boat(const Boat &boat);
 
    // Modificadoras
 
@@ -74,18 +65,18 @@ public:
    void sellProduct(int amount);
 
    /**
-    * @brief Modifica la cantidad del producto comprado que tiene el barco.
+    * @brief Modifica la cantidad del producto que quiere comprar.
     * \pre Cierto.
-    * \post La cantidad de producto comprado por el paràmetro implícito ha aumentado "amount" unidades.
+    * \post La cantidad que quiere comprar ha disminuido "amount" unidades.
    */
    void buyProduct(int amount);
 
    /**
     * @brief Modificadora de la información del barco.
-    * \pre "productForSaleId" != "productToBuyId" y ambos son productos existentes. "availible" y "purchased" deben ser mayores que cero y al menos uno estirictamente mayor que cero.
-    * \post Se ha moidificado el parámetro implícito. La cantidad de productos "productForSaleId" que tiene es "availible" y la cantidad de productos "productToBuyId" es "purchased"
+    * \pre "productForSaleId" != "productToBuyId" y ambos son productos existentes. "availible" y "buy_target" deben ser mayores que cero y al menos uno estirictamente mayor que cero.
+    * \post Se ha moidificado el parámetro implícito. La cantidad de productos "productForSaleId" que tiene es "availible" y la cantidad de productos "productToBuyId" es "buy_target"
    */
-   void setBoat(int productForSaleId, int availible, int productToBuyId, int purchased);
+   void setBoat(int productForSaleId, int availible, int productToBuyId, int buy_target);
 
    // Consultoras
 
@@ -94,28 +85,28 @@ public:
     * \pre Cierto.
     * \post Retorna la cantidad que tiene el parámetro implícito de producto a la venta.
    */
-   int getAvailible();
+   int getAvailible() const;
 
    /**
     * @brief Consultora de la cantidad de producto de compra que tiene.
     * \pre Cierto.
-    * \post Retorna la cantidad que tiene el parámetro implícito del producto que tiene que comprar.
+    * \post Retorna cuantas unidades en total quiere vender el barco.
    */
-   int getPurchased();
+   int getBuyTarget() const;
    
    /**
     * @brief Consultora del identificador del producto que se debe vender.
     * \pre Cierto.
     * \post Retorna el identificador del producto que vende el parámetro implícito.
    */
-   int getProductToBuyId();
+   int getProductToBuyId() const;
 
    /**
     * @brief Consultora del identificador del producto que se debe comprar.
     * \pre Cierto.
     * \post Retorna el identificador del producto que compra el parámetro implícito.
    */
-   int getProductForSaleId();
+   int getProductForSaleId() const;
    
    // I/O
 
