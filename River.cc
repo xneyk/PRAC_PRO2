@@ -162,8 +162,8 @@ void River::findOptimalRoute(BinTree<string> structure, Travel current_travel, T
       tryTransaction(structure.value(), current_travel);
       if (current_travel.betterTravelThan(best_travel)) best_travel = current_travel;
       if (not (current_travel.objectiveAchived() or structure.left().empty())) {
-         findOptimalRoute(structure.left(), current_travel, best_travel);
          findOptimalRoute(structure.right(), current_travel, best_travel);
+         findOptimalRoute(structure.left(), current_travel, best_travel);
       }
    }
    // no se actualiza ningún valor pues se ha llegado al final de la ruta.

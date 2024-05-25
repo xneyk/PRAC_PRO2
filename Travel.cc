@@ -76,6 +76,6 @@ bool Travel::betterTravelThan(const Travel& travel) const {
    if (buy_target + stock != travel.buy_target + travel.stock) return buy_target + stock < travel.buy_target + travel.stock;
    if (length != travel.length) return length < travel.length;
    
-   // Empate ==> El parámetro implícito és mejor.
+   // Empate ==> "El parámetro implícito" és mejor.
    return true;
 }

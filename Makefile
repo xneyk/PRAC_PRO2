@@ -1,5 +1,4 @@
-OPTIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG  -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11
-# -fno-extended-identifiers <-- no me deja usarla en mi máquina.
+OPTIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG  -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11 -fno-extended-identifiers
 
 CC_s = program.cc Boat.cc City.cc Product.cc ProductInventoryStats.cc ProductSet.cc River.cc Travel.cc
 HH_s = BinTree.hh Boat.hh City.hh Product.hh ProductInventoryStats.hh ProductSet.hh River.hh Travel.hh
