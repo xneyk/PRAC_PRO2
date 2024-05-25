@@ -37,18 +37,6 @@ private:
    int total_cities;
    map<string, int> cityPreorder;
    // Relaciona cada ciudad con su indice del preorden.
-   
-   list<string> travels;
-   // Almacena el nombre de las ciudades donde a acabado cada viaje realizado en el río.
-   // Cada nombre corresponde a un viaje, concretamente el que se ha realizado acabando en dicha ciudad.
-   // Los viajes se mantienen siempre ordenados cronologicamente.
-
-   /**
-    * @brief Añade la última ciudad del viaje ("city_name") a los viajes realizados.
-    * \pre Cierto
-    * \post "city_name" se ha añadido como último viaje realizado.
-   */
-   void addTravel(string city_name);
 
    /**
     * @brief Método auxiliar para la lectura de la estructura del río.
@@ -186,7 +174,7 @@ public:
     * \post El barco ha comerciado con todas aquellas ciudades del camino que mas provecho le daba.
     * \return Retorna la cantidad total de elementos transaccionados (vendidos + comprados).
    */
-   int travel(Boat boat, const ProductSet &product_set);
+   int travel(Boat &boat, const ProductSet &product_set);
 
    // I/O
 

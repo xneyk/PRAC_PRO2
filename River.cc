@@ -5,7 +5,8 @@
 River::River() {
    structure = BinTree<string>();
    citySet = map<string, City>();
-   travels = list<string>();
+   cityPreorder = map<string, int>();
+   total_cities = 0;
 }
 
 // Consultoras
@@ -63,17 +64,22 @@ void River::redistribute(const ProductSet &product_set) {
    }
 }
 
-int River::travel(Boat boat, const ProductSet &product_set) {
+int River::travel(Boat &boat, const ProductSet &product_set) {
    Travel current_travel(boat);
    Travel best_travel(current_travel);
 
    findOptimalRoute(structure, current_travel, best_travel);
    // El mejor viaje es best_travel. Es decir, el viaje que acaba en la ciudad best_travel.getLastTrade()
 
-   trade(structure, best_travel.getLastTrade(), boat, product_set);
-   // Va a ir comerciando por la ruta que acaba en "best_travel.getLastTrade()" hasta encontrar a esa ciudad.
+   if (best_travel.getLastTrade() != "") {
+      // Si no se ha podido comerciar no hay ruta de comercio posible no hay que efectuarla
+      Boat traveling_boat = boat; // Se envia una copia del barco a viajar por el rio.
+      trade(structure, best_travel.getLastTrade(), traveling_boat, product_set);
+      // Va a ir comerciando por la ruta que acaba en "best_travel.getLastTrade()" hasta encontrar a esa ciudad.
 
-   addTravel(best_travel.getLastTrade()); // Se añade el viaje a la lista.
+      boat.addTravel(best_travel.getLastTrade()); // Se añade el viaje a la lista.
+   }
+
    
    return boat.getAvailible() - best_travel.getStock() + boat.getBuyTarget() - best_travel.getBuyTarget();
 }
@@ -83,6 +89,7 @@ int River::travel(Boat boat, const ProductSet &product_set) {
 void River::read() {
    (*this) = River();
    // Al leer un rio es como si se creara uno nuevo.
+
    structure = buildRiver();
 }
 
@@ -112,10 +119,6 @@ void River::printRiver() {
 }
 
 // Métodos Privados (para hacer más legible/limpia la implementación)
-
-void River::addTravel(string city_name) {
-   travels.push_back(city_name);
-}
 
 BinTree<string> River::buildRiver() {
    string city;
@@ -165,46 +168,34 @@ void River::findOptimalRoute(BinTree<string> structure, Travel current_travel, T
 
 void River::tryTransaction(string city_name, Travel &current_travel) const {
    City city = citySet.at(city_name);
-   int for_sale_id = current_travel.getProductForSaleId();
    int to_buy_id = current_travel.getProductToBuyId();
+   int for_sale_id = current_travel.getProductForSaleId();
 
-   int sold = 0, bought = 0;
-   if (city.hasProduct(for_sale_id)) { // Posible compra de la ciudad
-      int excess = city.getOwnedById(for_sale_id) - city.getNeededById(for_sale_id);
-      if (excess < 0) {
-         sold = min(current_travel.getStock(), -excess);
-      }
-   }
+   int bought = 0, sold = 0;
    if (city.hasProduct(to_buy_id)) { // Posible venta de la ciudad
       int excess = city.getOwnedById(to_buy_id) - city.getNeededById(to_buy_id);
       if (excess > 0) {
          bought = min(current_travel.getBuyTarget(), excess);
       }
    }
+   if (city.hasProduct(for_sale_id)) { // Posible compra de la ciudad
+      int excess = city.getOwnedById(for_sale_id) - city.getNeededById(for_sale_id);
+      if (excess < 0) {
+         sold = min(current_travel.getStock(), -excess);
+      }
+   }
 
-   if (not (sold == 0 and bought == 0)) {
-      current_travel.updateStatus(sold, bought);
+   if (not (bought == 0 and sold == 0)) {
+      current_travel.updateStatus(bought, sold);
       current_travel.setLastTrade(city_name);
    }
 }
 
 void River::transaction(string city_name, Boat &boat, const ProductSet &product_set) {
-   int for_sale_id = boat.getProductForSaleId();
    int to_buy_id = boat.getProductToBuyId();
+   int for_sale_id = boat.getProductForSaleId();
 
-   int sold = 0, bought = 0;
-   if (citySet.at(city_name).hasProduct(for_sale_id)) { // Posible compra de la ciudad
-      ProductInventoryStats for_sale_stats = citySet.at(city_name).getProductStats(for_sale_id);
-      int owned = for_sale_stats.getOwned();
-      int needed = for_sale_stats.getNeeded();
-      int excess =  owned - needed;
-      if (excess < 0) { // La ciudad quiere comprar el producto (le hace falta)
-         sold = min(boat.getAvailible(), -excess);
-         
-         citySet.at(city_name).setProductStatus(for_sale_id, product_set, owned + sold, needed);
-         boat.sellProduct(sold);
-      }
-   }
+   int bought = 0, sold = 0;
    if (citySet.at(city_name).hasProduct(to_buy_id)) { // Posible venta de la ciudad
       ProductInventoryStats to_buy_stats = citySet.at(city_name).getProductStats(to_buy_id);
       int owned = to_buy_stats.getOwned();
@@ -212,9 +203,21 @@ void River::transaction(string city_name, Boat &boat, const ProductSet &product_
       int excess =  owned - needed;
       if (excess > 0) { // A la ciudad le sobran productos
          bought = min(boat.getBuyTarget(), excess);
-         
+
          citySet.at(city_name).setProductStatus(to_buy_id, product_set, owned - bought, needed);
          boat.buyProduct(bought);
+      }
+   }
+   if (citySet.at(city_name).hasProduct(for_sale_id)) { // Posible compra de la ciudad
+      ProductInventoryStats for_sale_stats = citySet.at(city_name).getProductStats(for_sale_id);
+      int owned = for_sale_stats.getOwned();
+      int needed = for_sale_stats.getNeeded();
+      int excess =  owned - needed;
+      if (excess < 0) { // La ciudad quiere comprar el producto (le hace falta)
+         sold = min(boat.getAvailible(), -excess);
+
+         citySet.at(city_name).setProductStatus(for_sale_id, product_set, owned + sold, needed);
+         boat.sellProduct(sold);
       }
    }
 }

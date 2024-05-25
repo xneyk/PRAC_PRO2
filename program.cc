@@ -23,11 +23,11 @@ int main() {
    river.read();
 
    // Inicialicación del BARCO.
+   int toBuyId, buy_target;
    int forSaleId, availible;
-   int toBuyId, purchased;
-   cin >> forSaleId >> availible >> toBuyId >> purchased;
+   cin >> toBuyId >> buy_target >> forSaleId >> availible;
 
-   Boat boat(forSaleId, availible, toBuyId, purchased);
+   Boat boat(toBuyId, buy_target, forSaleId, availible);
 
    // TRATAMIENTO DE LOS COMANDOS
    string cmd;
@@ -39,7 +39,7 @@ int main() {
          cout << '#' << cmd << endl;
 
          river.read();
-         // reset boat travels
+         boat.clearTravels();
       }
       else if (cmd == "leer_inventario" or cmd == "li") {
          cin >> city_id;
@@ -63,15 +63,15 @@ int main() {
       else if (cmd == "modificar_barco" or cmd == "mb") {
          cout << '#' << cmd << endl;
 
-         cin >> forSaleId >> availible >> toBuyId >> purchased;
-         if (not (product_set.existsProductWithId(forSaleId) and product_set.existsProductWithId(toBuyId))) {
+         cin >> toBuyId >> buy_target >> forSaleId >> availible;
+         if (not (product_set.existsProductWithId(toBuyId) and product_set.existsProductWithId(forSaleId))) {
             cout << "error: no existe el producto" << endl;
          }
-         else if (forSaleId == toBuyId) {
+         else if (toBuyId == forSaleId) {
             cout << "error: no se puede comprar y vender el mismo producto" << endl;
          }
          else {
-            boat.setBoat(forSaleId, availible, toBuyId, purchased);
+            boat.setBoat(toBuyId, buy_target, forSaleId, availible);
          }
       }
       else if (cmd == "escribir_barco" or cmd == "eb") {

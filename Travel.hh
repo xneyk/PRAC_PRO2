@@ -18,10 +18,10 @@ using namespace std;
 class Travel {
 
 private:
-   int product_for_sale_id;
-   int stock; // Cantidad que se quiere vender.
    int product_to_buy_id;
    int buy_target; // Cantidad que queda por comprar.
+   int product_for_sale_id;
+   int stock; // Cantidad que se quiere vender.
    int length;
    string last_trade;
 
@@ -54,9 +54,9 @@ public:
    /**
     * @brief Actualiza la cantidad disponible y el objetivo de compra.
     * \pre Cierto.
-    * \post La cantidad disponible ha disminuido sold y el objetivo de compra ha disminuido "bought"
+    * \post El objetivo de compra ha disminuido "bought" y la cantidad disponible ha disminuido sold.
    */
-   void updateStatus(int sold, int bought);
+   void updateStatus(int bought, int sold);
 
    /**
     * @brief Añade "city_name" como la última ciudad con la que se ha comerciado.
@@ -89,13 +89,6 @@ public:
    int getLength() const;
 
    /**
-    * @brief Consultora del identificador del producta a vender.
-    * \pre Cierto.
-    * \post Retorna el identificador del producta a vender.
-   */
-   int getProductForSaleId() const;
-
-   /**
     * @brief Consultora del identificador del producta a comprar.
     * \pre Cierto.
     * \post Retorna el identificador del producto a comprar.
@@ -103,11 +96,11 @@ public:
    int getProductToBuyId() const;
 
    /**
-    * @brief Consultora de la cantidad disponible de producto a vender.
+    * @brief Consultora del identificador del producta a vender.
     * \pre Cierto.
-    * \post Retorna la cantidad disponible del producto a vender.
+    * \post Retorna el identificador del producta a vender.
    */
-   int getStock() const;
+   int getProductForSaleId() const;
 
    /**
     * @brief Consultora de la cantidad que se debe vender para llegar al objetivo de compras.
@@ -117,11 +110,18 @@ public:
    int getBuyTarget() const;
 
    /**
+    * @brief Consultora de la cantidad disponible de producto a vender.
+    * \pre Cierto.
+    * \post Retorna la cantidad disponible del producto a vender.
+   */
+   int getStock() const;
+
+   /**
     * @brief Decide si se ha alcanzado el objetivo del viaje.
     * 
-    * Es decir, si se ha vendido todos los productos y se ha comprado tantas unidades como se deseaba.
+    * Es decir, si se ha comprado tantas unidades como se deseaba y se ha vendido todos los productos.
     * \pre Cierto.
-    * \post Retorna "true" si cantidad disponible y la cantidad que se debe vender para llegar al objetivo de compras es 0, "false" en caso contrario.
+    * \post Retorna "true" si la cantidad que se debe vender para llegar al objetivo de compras y la cantidad disponible es 0, "false" en caso contrario.
    */
    bool objectiveAchived() const;
 

@@ -12,10 +12,10 @@
 // }
 
 Travel::Travel(const Boat& boat) {
-   product_for_sale_id = boat.getProductForSaleId();
-   stock = boat.getAvailible();
    product_to_buy_id = boat.getProductToBuyId();
    buy_target = boat.getBuyTarget();
+   product_for_sale_id = boat.getProductForSaleId();
+   stock = boat.getAvailible();
    length = 0;
    last_trade = "";
 }
@@ -29,9 +29,9 @@ Travel::Travel(const Boat& boat) {
 
 // Modificadoras
 
-void Travel::updateStatus(int sold, int bought) {
-   stock -= sold;
+void Travel::updateStatus(int bought, int sold) {
    buy_target -= bought;
+   stock -= sold;
 }
 
 void Travel::setLastTrade(string city_name) {
@@ -52,28 +52,28 @@ int Travel::getLength() const {
    return length;
 }
 
-int Travel::getProductForSaleId() const {
-   return product_for_sale_id;
-}
-
 int Travel::getProductToBuyId() const {
    return product_to_buy_id;
 }
 
-int Travel::getStock() const {
-   return stock;
+int Travel::getProductForSaleId() const {
+   return product_for_sale_id;
 }
 
 int Travel::getBuyTarget() const {
    return buy_target;
 }
 
+int Travel::getStock() const {
+   return stock;
+}
+
 bool Travel::objectiveAchived() const {
-   return stock == 0 and buy_target == 0;
+   return buy_target == 0 and stock == 0;
 }
 
 bool Travel::betterTravelThan(const Travel& travel) const {
-   if (stock + buy_target != travel.stock + travel.buy_target) return stock + buy_target < travel.stock + travel.buy_target;
+   if (buy_target + stock != travel.buy_target + travel.stock) return buy_target + stock < travel.buy_target + travel.stock;
    if (length != travel.length) return length < travel.length;
    
    // Empate ==> El parámetro implícito és mejor.
