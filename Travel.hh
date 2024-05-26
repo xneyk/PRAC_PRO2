@@ -7,14 +7,18 @@
 #define _TRAVEL_HH_
 
 #ifndef NO_DIAGRAM
-#include <stack>
 #include <string>
 using namespace std;
 #endif
 
 #include "Boat.hh"
 
-
+/**
+ * @class Travel
+ * @brief Un viaje (Travel) representa y almacena toda la información relevante de un viaje comercial por la cuenca fluvial.
+ * 
+ * Es decir, este almacena cúal es su longitud, cúal ha sido la última ciudad con la que ha habido comercio y, el estado del barco una vez hecha la ruta hasta dicha ciudad (esta también incluida).
+*/
 class Travel {
 
 private:
@@ -27,27 +31,13 @@ private:
 
 public:
    // Constructoras
-   
-   /**
-    * @brief Constructora de viajes vacios.
-    * \pre Cierto.
-    * \post Se ha creado una nueva instancia vacia de la clase Travel.
-   */
-   // Travel(); <-- SEGURAMENTE NO NECESARIA
 
    /**
     * @brief Creadora de viajes a partir de las propiedades de un barco.
     * \pre Cierto
-    * \post el producto que se vende, el que se compra, la cantidad disponible y el objetivo de compra es el mismo que para el barco "boat".
+    * \post el producto que se vende, el que se compra, la cantidad disponible y el objetivo de compra es el mismo que para el barco "boat". La longitud del viaje es cero y el nombre de la última ciudad con la que se ha comerciado no esta definido.
    */
    Travel(const Boat &boat);
-
-   /**
-    * @brief Constructora copiadora de viajes.
-    * \pre Cierto.
-    * \post Se ha creado nueva instancia identica a "travel".
-   */
-   // Travel(const Travel &travel);
 
    // Modificadoras
 

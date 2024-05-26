@@ -2,15 +2,6 @@
 
 // Constructoras
 
-// Travel::Travel() {
-//    product_for_sale_id = 0;
-//    stock = 0;
-//    product_to_buy_id = 0;
-//    buy_target = 0;
-//    length = 0;
-//    last_trade = "";
-// }
-
 Travel::Travel(const Boat& boat) {
    product_to_buy_id = boat.getProductToBuyId();
    buy_target = boat.getBuyTarget();
@@ -19,13 +10,6 @@ Travel::Travel(const Boat& boat) {
    length = 0;
    last_trade = "";
 }
-
-// Travel::Travel(const Travel& travel) {
-//    stock = travel.stock;
-//    buy_target = travel.buy_target;
-//    length = travel.length;
-//    last_trade = travel.last_trade;
-// }
 
 // Modificadoras
 

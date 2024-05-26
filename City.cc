@@ -37,8 +37,8 @@ void City::trade(City &visitor_city, const ProductSet &product_set) {
    map<int, ProductInventoryStats>::iterator local_product = inventory.begin();
 
    // Vamos a iterar los dos inventarios a la vez de arriba a abajo, aprovechando que estos estan
-   // ordenados de menor a mayor indice, podremos ir avanzando los dos "montones" individualmente
-   // e ir encontrando indices que coincidan.
+   // ordenados de menor a mayor indice, podremos ir avanzando los dos "montones" individualmentel
+   // e ir encontrando todos los indices que coincidan.
    while (local_product != inventory.end() and visitor_product != visitor_city.inventory.end()) {
       // Guardamos los identificadores de cada producto en una variable para mayor legibilidad.
       int local_id = local_product->first, visitor_id = visitor_product->first;

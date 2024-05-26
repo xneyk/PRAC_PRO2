@@ -9,7 +9,6 @@
 #ifndef NO_DIAGRAM
 #include "BinTree.hh"
 #include <map>
-#include <list>
 #include <string>
 using namespace std;
 #endif
@@ -30,13 +29,17 @@ private:
    // Observación: Notad que solamente se trata de sus identificadores, la información
    // de cada ciudad se almacena en una clase "City".
    
-   map<string, City> citySet; // Tal vez seria buena idea abstraerlo en una clase CitySet.
+   map<string, City> citySet;
    // Es en este conjunto de ciudades donde se relaciona a cada ciudad con su identificador
    // correspondiente.
 
    int total_cities;
    map<string, int> cityPreorder;
-   // Relaciona cada ciudad con su indice del preorden.
+   // Relaciona cada ciudad con su índice del preorden.
+   // Esto se usa en la función trade() entre barco y ciudades, puesto que se usa un algoritmo en el que,
+   // basandose en el orden de asignación de las ciudades en preorden, podemos encontrar un número dado.
+   // De este modo, mientras se busca la ruta que hay que seguir para comerciar, podemos ir comerciando,
+   // pues el algoritmo asegura que la ciudad que visitada está incluida en la ruta.
 
    /**
     * @brief Método auxiliar para la lectura de la estructura del río.
@@ -77,9 +80,10 @@ private:
 
    /**
     * @brief Comercio entre barco y ciudades.
-    * \pre 
+    * \pre La ciudad "last_city" pertenece al río y se encuentra en "structure".
+    * \post Todas las ciudades del camino root-last_city que tuvierán los productos del barco y estuvieran en condiciones de comerciar han comerciado con el barco.
    */
-   void trade(BinTree<string> structure, string last_city, Boat &boat, const ProductSet &product_set);
+   void trade(BinTree<string> structure, const string &last_city, Boat &boat, const ProductSet &product_set);
 
 public:
 

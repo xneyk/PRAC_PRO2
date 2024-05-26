@@ -46,21 +46,8 @@ void River::trade(string city_A, string city_B, const ProductSet &product_set) {
 }
 
 void River::redistribute(const ProductSet &product_set) {
-   // Solamente se tiene que comprobar que uno de los hijos no esta vacio, ya que
-   // por definición de rio: Cada ciudad o tiene una ciudad a la derecha y una a la izquierda
-   // o no tiene ninguna.
-   if (not (structure.empty() or structure.left().empty())) {
-      string root = structure.value();
-      string right_neighbor = structure.left().value();
-      string left_neighbor = structure.right().value();
-
-      citySet.at(root).trade(citySet.at(right_neighbor), product_set);
-      citySet.at(root).trade(citySet.at(left_neighbor), product_set);
-
-      // Se sigue la redistrubución por el lado derecho (río arriba) del río.
-      redistribute(structure.left(), product_set);
-      // Se sigue la redistrubución por el lado izquierdo (río arriba) del río.
-      redistribute(structure.right(), product_set);
+   if (not structure.empty()) {
+      redistribute(structure, product_set);
    }
 }
 
@@ -113,10 +100,10 @@ void River::printProductStatsById(string city_name, int id) {
 }
 
 // SOLO PARA LA FASE DE DESARROLLO PODER VER COMO SE ORGANIZA EL RIO, ELIMINAR LUEGO.
-void River::printRiver() {
-   structure.setOutputFormat(BinTree<string>::VISUALFORMAT);
-   cout << structure << endl;
-}
+// void River::printRiver() {
+//    structure.setOutputFormat(BinTree<string>::VISUALFORMAT);
+//    cout << structure << endl;
+// }
 
 // Métodos Privados (para hacer más legible/limpia la implementación)
 
@@ -225,19 +212,41 @@ void River::transaction(string city_name, Boat &boat, const ProductSet &product_
    }
 }
 
-void River::trade(BinTree<string> structure, string last_city, Boat &boat, const ProductSet &product_set) {
+void River::trade(BinTree<string> structure, const string &last_city, Boat &boat, const ProductSet &product_set) {
    if (not structure.empty()) {
       string root_city = structure.value();
+
+      // PRE: root_city pertenece a la ruta de comercio.
       transaction(root_city, boat, product_set);
-
+      
       int searching_id = cityPreorder.at(last_city);
-
-      if (cityPreorder.at(root_city) != searching_id) {
+      /*
+       * La ciudad que estamos buscando se encuentra en la posición "searching_id" en preorden.
+       * 
+       * Por la definición del preorden, si enumeramos cada nodo del árbol en función del orden
+       * de lectura: root < left < right. En ser recursivo, esto mismo se cumple en el subárbol
+       * izquierdo y derecho. De este modo queda demostrado que: ∀ node ∈ tree, si este tiene
+       * sus dos hijos node_right y node_left ==> sus valores cumplen: node < node_left < node_right.
+       * Y por otro lado en caso de no tener ningún hijo, sea father el nodo padre de node, sus
+       * valores cumplen: node > father.
+       * 
+       * Siendo lo anterior cierto, si queremos encontrar un valor x ∈ tree:
+       * x > root:
+       *    x >= node_right ==> x ∈ subtree_right
+       *    x < node_right ∧ x > root ==> x >= node_left ==> x ∈ subtree_left
+       * 
+       * En consecuencia, sabemos que:
+       *    x >= node_right ==> node_right ∈ al camino root-x
+       *    x >= node_left ==> node_left ∈ al camino root-x
+       * De este modo sabemos que se volverá a cumplir: "root_city pertenece a la ruta de comercio".
+      */
+      if (searching_id > cityPreorder.at(root_city)) {
          if (not structure.right().empty()) { // ==> structure.left().empty() false.
             int right_city_preorder_id = cityPreorder.at(structure.right().value());
-            if (searching_id >= right_city_preorder_id) {
+
+            if (searching_id >= right_city_preorder_id) { // x >= node_right ==> x ∈ subtree_right
                trade(structure.right(), last_city, boat, product_set);
-            } else {
+            } else { // x >= node_left ==> x ∈ subtree_left
                trade(structure.left(), last_city, boat, product_set);
             }
          }
