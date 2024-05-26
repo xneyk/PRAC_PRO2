@@ -44,47 +44,36 @@ void City::trade(City &visitor_city, const ProductSet &product_set) {
       int local_id = local_product->first, visitor_id = visitor_product->first;
       
       if (local_id == visitor_id) { // Las dos ciudades tienen el mismo producto ==> pueden comerciar.
+         int local_owned = local_product->second.getOwned();
+         int visitor_owned = visitor_product->second.getOwned();
          int local_excess = local_product->second.getOwned() - local_product->second.getNeeded();
          int visitor_excess = visitor_product->second.getOwned() - visitor_product->second.getNeeded();
 
-         if (local_excess > 0 and visitor_excess < 0) {
+         if (local_excess*visitor_excess < 0) {
             // Se transacciona el excedente más pequeño, ya que si la visitante necesita más de lo que
             // la local tiene, esta le dará todo su excedente. Por otro lado, si el excedente de la local
             // es mayor que lo que le falta a la visitante para llegar a lo que necesita, la local le dará
             // solamente esta cantidad.
-            int transacted = min(local_excess, -visitor_excess);
+            int transacted = min(abs(local_excess), abs(visitor_excess));
 
-            local_product->second.setOwned(local_product->second.getOwned() - transacted);
-            visitor_product->second.setOwned(visitor_product->second.getOwned() + transacted);
+            int local_new_owned = local_excess > 0 ? local_owned - transacted : local_owned + transacted;
+            int visitor_new_owned = visitor_excess > 0 ? visitor_owned - transacted : visitor_owned + transacted;
+
+            local_product->second.setOwned(local_new_owned);
+            visitor_product->second.setOwned(visitor_new_owned);
             
             // Recalculamos el peso y volumen total de ambas ciudades.
             int product_weigth = product_set.getWeightById(local_id);
             int product_volume = product_set.getVolumeById(local_id);
 
-            totalWeight -= transacted*product_weigth;
-            totalVolume -= transacted*product_volume;
-            visitor_city.totalWeight += transacted*product_weigth;
-            visitor_city.totalVolume += transacted*product_volume;
+            int weight_variance = transacted*product_weigth;
+            int volumen_variance = transacted*product_volume;
+
+            totalWeight += local_excess > 0 ? -weight_variance : weight_variance;
+            totalVolume += local_excess > 0 ? -volumen_variance : volumen_variance;
+            visitor_city.totalWeight += visitor_excess > 0 ? -weight_variance : weight_variance;
+            visitor_city.totalVolume += visitor_excess > 0 ? -volumen_variance : volumen_variance;
             
-         }
-         else if (local_excess < 0 and visitor_excess > 0) {
-            // Se transacciona el excedente más pequeño, ya que si la local necesita más de lo que
-            // la visitante tiene, esta le dará todo su excedente. Por otro lado, si el excedente de la visitante
-            // es mayor que lo que le falta a la local para llegar a lo que necesita, la visitante le dará
-            // solamente esta cantidad.
-            int transacted = min(-local_excess, visitor_excess);
-
-            local_product->second.setOwned(local_product->second.getOwned() + transacted);
-            visitor_product->second.setOwned(visitor_product->second.getOwned() - transacted);
-
-            // Recalculamos el peso y volumen total de ambas ciudades.
-            int product_weigth = product_set.getWeightById(local_id);
-            int product_volume = product_set.getVolumeById(local_id);
-            // Toda esta parte del codigo posiblemente sea extraible a un metodo privado.
-            totalWeight += transacted*product_weigth;
-            totalVolume += transacted*product_volume;
-            visitor_city.totalWeight -= transacted*product_weigth;
-            visitor_city.totalVolume -= transacted*product_volume;
          }
          ++local_product;
          ++visitor_product;
