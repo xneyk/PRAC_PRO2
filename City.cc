@@ -12,8 +12,10 @@ City::City() {
 
 void City::addProduct(int id, const ProductSet &product_set, int owned, int needed) {
    inventory[id] = ProductInventoryStats(owned, needed);
-   totalWeight += owned*product_set.getWeightById(id);
-   totalVolume += owned*product_set.getVolumeById(id);
+   increaseTotalWeightAndVolumen(
+      owned*product_set.getWeightById(id),
+      owned*product_set.getVolumeById(id)
+   );
 }
 
 void City::setProductStatus(int id, const ProductSet &product_set, int new_owned, int new_needed) {
@@ -21,15 +23,19 @@ void City::setProductStatus(int id, const ProductSet &product_set, int new_owned
    inventory[id].setOwned(new_owned);
    inventory[id].setNeeded(new_needed);
 
-   totalWeight += (new_owned - old_owned)*product_set.getWeightById(id);
-   totalVolume += (new_owned - old_owned)*product_set.getVolumeById(id);
+   increaseTotalWeightAndVolumen(
+      (new_owned - old_owned)*product_set.getWeightById(id),
+      (new_owned - old_owned)*product_set.getVolumeById(id)
+   );
 }
 
 void City::removeProduct(int id, const ProductSet &product_set) {
    int old_owned = getOwnedById(id);
    inventory.erase(id);
-   totalWeight -= old_owned*product_set.getWeightById(id);
-   totalVolume -= old_owned*product_set.getVolumeById(id);
+   decreaseTotalWeightAndVolumen(
+      old_owned*product_set.getWeightById(id),
+      old_owned*product_set.getVolumeById(id)
+   );
 }
 
 void City::trade(City &visitor_city, const ProductSet &product_set) {
@@ -58,29 +64,28 @@ void City::trade(City &visitor_city, const ProductSet &product_set) {
             // solamente esta cantidad.
             int transacted = min(abs(local_excess), abs(visitor_excess));
 
-            // local_excess > 0 ==> visitor_exces < 0 ==> p.i vende "transacted" visitor compra "transacted".
-            // local_excess < 0 ==> visitor_exces > 0 ==> p.i compra "transacted" visitor vende "transacted".
-            int local_new_owned = local_excess > 0 ? local_owned - transacted : local_owned + transacted;
-            int visitor_new_owned = visitor_excess > 0 ? visitor_owned - transacted : visitor_owned + transacted;
+            // Se debe recalcular el peso y volumen total de ambas ciudades.
+            int product_weigth = product_set.getWeightById(local_id);
+            int product_volume = product_set.getVolumeById(local_id);
+            // Precalculamos la variacion de pesos y volúmenes.
+            int weight_variance = transacted*product_weigth;
+            int volume_variance = transacted*product_volume;
+
+            int local_new_owned, visitor_new_owned;
+            if (local_excess > 0) { // ==> visitor_exces < 0 ==> p.i vende "transacted" visitor compra "transacted".
+               local_new_owned = local_owned - transacted;
+               decreaseTotalWeightAndVolumen(weight_variance, volume_variance);
+               visitor_new_owned = visitor_owned + transacted;
+               visitor_city.increaseTotalWeightAndVolumen(weight_variance, volume_variance);
+            } else { // local_excess < 0 ==> visitor_exces > 0 ==> p.i compra "transacted" visitor vende "transacted".
+               local_new_owned = local_owned + transacted;
+               increaseTotalWeightAndVolumen(weight_variance, volume_variance);
+               visitor_new_owned = visitor_owned - transacted;
+               visitor_city.decreaseTotalWeightAndVolumen(weight_variance, volume_variance);
+            }
 
             local_product->second.setOwned(local_new_owned);
             visitor_product->second.setOwned(visitor_new_owned);
-            
-            // Recalculamos el peso y volumen total de ambas ciudades.
-            int product_weigth = product_set.getWeightById(local_id);
-            int product_volume = product_set.getVolumeById(local_id);
-
-            int weight_variance = transacted*product_weigth;
-            int volumen_variance = transacted*product_volume;
-
-            // local_excess > 0 ==> visitor_exces < 0 ==> p.i vende "transacted" visitor compra "transacted".
-            // local_excess < 0 ==> visitor_exces > 0 ==> p.i compra "transacted" visitor vende "transacted".
-            // De modo que según haya comprado o haya vendido es necesario actualizar el peso y volumen total
-            // de las ciudades augementando o disminuyendo la variación de peso y volumen.
-            totalWeight += local_excess > 0 ? -weight_variance : weight_variance;
-            totalVolume += local_excess > 0 ? -volumen_variance : volumen_variance;
-            visitor_city.totalWeight += visitor_excess > 0 ? -weight_variance : weight_variance;
-            visitor_city.totalVolume += visitor_excess > 0 ? -volumen_variance : volumen_variance;
          }
          ++local_product;
          ++visitor_product;
@@ -140,4 +145,19 @@ void City::printInventory() const {
       ++inventory_line;
    }
    cout << getTotalWeight() << ' ' << getTotalVolume() << endl;
+}
+
+// Métodos privados
+
+void City::increaseTotalWeightAndVolumen(int weight_variance, int volume_variance) {
+   totalWeight += weight_variance;
+   totalVolume += volume_variance;
+}
+
+void City::decreaseTotalWeightAndVolumen(int weight_variance, int volume_variance) {
+   // Se perfectamente que esto mismo lo podemos conseguir haciendo 
+   // increaseTotalWeightAndVolumen(-weight_variance, -volume_variance) y ahorrarnos esta función
+   // pero en mi opinión esta tonteria tiene un gran impacto en la legibilidad del código.
+   totalWeight -= weight_variance;
+   totalVolume -= volume_variance;
 }

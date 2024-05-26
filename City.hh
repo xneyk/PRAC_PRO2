@@ -28,6 +28,19 @@ private:
    int totalWeight;
    int totalVolume;
 
+   /**
+    * @brief Modificadora del peso y volumen total de un inventario.
+    * @pre Cierto.
+    * @post El peso total a augmentado "weight_variance" y el volumen total ha augmentado "volume_variance".
+   */
+   void increaseTotalWeightAndVolumen(int weight_variance, int volume_variance);
+
+   /**
+    * @brief Modificadora del peso y volumen total de un inventario.
+    * @pre Cierto.
+    * @post El peso total a disminuido "weight_variance" y el volumen total ha disminuido "volume_variance".
+   */
+   void decreaseTotalWeightAndVolumen(int weight_variance, int volume_variance);
 public:
 
    // Constructoras
