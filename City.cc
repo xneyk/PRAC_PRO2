@@ -49,13 +49,17 @@ void City::trade(City &visitor_city, const ProductSet &product_set) {
          int local_excess = local_product->second.getOwned() - local_product->second.getNeeded();
          int visitor_excess = visitor_product->second.getOwned() - visitor_product->second.getNeeded();
 
-         if (local_excess*visitor_excess < 0) {
+         if (local_excess*visitor_excess < 0) { 
+         // local_excess*visitor_excess < 0 ==> (local_excess > 0 ∧ visitor_excess < 0) ∨ (local_excess < 0 ∧ visitor_excess > 0)
+         
             // Se transacciona el excedente más pequeño, ya que si la visitante necesita más de lo que
             // la local tiene, esta le dará todo su excedente. Por otro lado, si el excedente de la local
             // es mayor que lo que le falta a la visitante para llegar a lo que necesita, la local le dará
             // solamente esta cantidad.
             int transacted = min(abs(local_excess), abs(visitor_excess));
 
+            // local_excess > 0 ==> visitor_exces < 0 ==> p.i vende "transacted" visitor compra "transacted".
+            // local_excess < 0 ==> visitor_exces > 0 ==> p.i compra "transacted" visitor vende "transacted".
             int local_new_owned = local_excess > 0 ? local_owned - transacted : local_owned + transacted;
             int visitor_new_owned = visitor_excess > 0 ? visitor_owned - transacted : visitor_owned + transacted;
 
@@ -69,17 +73,20 @@ void City::trade(City &visitor_city, const ProductSet &product_set) {
             int weight_variance = transacted*product_weigth;
             int volumen_variance = transacted*product_volume;
 
+            // local_excess > 0 ==> visitor_exces < 0 ==> p.i vende "transacted" visitor compra "transacted".
+            // local_excess < 0 ==> visitor_exces > 0 ==> p.i compra "transacted" visitor vende "transacted".
+            // De modo que según haya comprado o haya vendido es necesario actualizar el peso y volumen total
+            // de las ciudades augementando o disminuyendo la variación de peso y volumen.
             totalWeight += local_excess > 0 ? -weight_variance : weight_variance;
             totalVolume += local_excess > 0 ? -volumen_variance : volumen_variance;
             visitor_city.totalWeight += visitor_excess > 0 ? -weight_variance : weight_variance;
             visitor_city.totalVolume += visitor_excess > 0 ? -volumen_variance : volumen_variance;
-            
          }
          ++local_product;
          ++visitor_product;
       }
-      else if (local_id > visitor_id) ++visitor_product;
-      else ++local_product; // (local_id < visitor_id)
+      else if (local_id < visitor_id) ++local_product;
+      else ++visitor_product; // (local_id > visitor_id) == (visitor_id < local_id)
    }
 }
 
