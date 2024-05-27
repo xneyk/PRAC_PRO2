@@ -27,4 +27,4 @@ make program.exe
 ```
 3. Ejecutar el programa `program.exe` y empezar a probarlo:)
 Asegurate de que conoces antes que entradas se esperan como datos iniciales, las condiciones que deben cumplir estos y cuales son las instrucciones con las que se interactua con el programa.
-Todas estas instrucciones las encontrarás en la pàgina web de la asignatura buscando el enunciado de esta práctica (Primavera 2024, Comercio Fluvial).
+Todas estas instrucciones las encontrarás en [la página web de la asignatura](https://www.cs.upc.edu/pro2/index.php?id=practica-primavera-2024) buscando el enunciado de esta práctica (Primavera 2024, Comercio Fluvial).
