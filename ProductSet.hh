@@ -40,7 +40,6 @@ public:
    /**
     * @brief Añade un producto al conjunto.
     * \pre Cierto.
-    * \warning En ningún momento se ha aclarado que peso y volumen deban ser > 0.
     * \post se ha añadido un nuevo producto al parámetro implícito, con su peso y volumen correspondiente, al conjunto de productos. el identificador de éste es el identificador del anterior + 1 en caso de que el conjunto no esté vacío, 1 en otro caso.
    */
    void addProduct(Product product);

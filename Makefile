@@ -45,6 +45,6 @@ clear:
 	rm -f *.exe
 
 tar:
-	tar -cvf program.tar $(CC_s) $(HH_s) Makefile
+	tar -cvf program.tar $(CC_s) $(HH_s) Makefile proof.pdf html.zip
 
 # --- --- --- --- ---

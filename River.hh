@@ -60,7 +60,7 @@ private:
    /**
     * @brief Encuentra la ruta más provechosa para el barco
     * \pre "current_travel" contiene el estado del viaje realizado para llegar a la ciudad actual.
-    * \post "best_travel" guarda el mejor viaje realizado hasta el momento.
+    * \post "best_travel" guarda el mejor viaje realizado hasta el momento y "current_travel" contiene el estado del viaje realizado una vez pasada a la ciudad actual.
    */
    void findOptimalRoute(BinTree<string> structure, Travel current_travel, Travel &best_travel) const;
 

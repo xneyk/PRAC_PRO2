@@ -145,15 +145,26 @@ void River::redistribute(BinTree<string> structure, const ProductSet &product_se
 
 void River::findOptimalRoute(BinTree<string> structure, Travel current_travel, Travel &best_travel) const {
    if (not structure.empty()) {
+      // La ruta del viaje tiene una parada más ==> Aumenta la longitud del camino.
       current_travel.increaseLength();
+      // Simulamos la transacción
       tryTransaction(structure.value(), current_travel);
+      // La transacción puede hacer que el viaje actual sea mejor que el mejor viaje hasta la fecha
+      // para seguir cumpliendo la Postcondición comprovamos y actualizamos.
       if (current_travel.betterTravelThan(best_travel)) best_travel = current_travel;
+
       if (not (current_travel.objectiveAchived() or structure.left().empty())) {
+         // Travel::bestTravelThan en caso de empate total considera el parámentro implícito como mejor,
+         // Por lo que para cumplir la condición de que en caso de empate total se quede con el viaje
+         // más cercano a la izquierda, debemos visitar la derecha antes que la izquierda de este modo
+         // "current_travel" siempre estará más cercano a la izquierda que a la derecha.
+         
          findOptimalRoute(structure.right(), current_travel, best_travel);
          findOptimalRoute(structure.left(), current_travel, best_travel);
       }
    }
-   // no se actualiza ningún valor pues se ha llegado al final de la ruta.
+   // Caso base: structure.empty() ==> Se ha llegado al final de la ruta ==>
+   // ==> No se actualiza nada, se acabam las llamadas recursivas.
 }
 
 void River::tryTransaction(string city_name, Travel &current_travel) const {
