@@ -1,3 +1,7 @@
+/**
+ * @file City.cc
+ * @brief Implementación de la clase City.
+*/
 #include "City.hh"
 
 // Constructoras

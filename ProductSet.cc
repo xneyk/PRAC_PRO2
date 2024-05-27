@@ -1,3 +1,7 @@
+/**
+ * @file ProductSet.cc
+ * @brief Implementación de la clase ProductSet.cc
+*/
 #include "ProductSet.hh"
 
 // Constructoras

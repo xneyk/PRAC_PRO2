@@ -1,3 +1,17 @@
+/**
+ * @file program.cc
+ * @brief Este es el programa principal, el cual proporciona una especie de CLI con la que podemos interactuar con el código de la práctica.
+*/
+/**
+ * @mainpage
+ * Se describe una cuenca fluvial con un río principal y varios afluentes, donde las ciudades están ubicadas en las fuentes y en los puntos de unión de los afluentes, incluyendo la desembocadura al norte. No hay ciudades en otros tramos del río. Las aguas fluyen de sur a norte.
+ * 
+ * Las ciudades se utilizan como nodos en una representación gráfica, y cada una tiene un inventario de productos identificados por números, con atributos de peso y volumen. Cada ciudad necesita ciertos productos y puede tener más, menos o exactamente la cantidad que necesita.
+ * 
+ * Un barco comercial se usa para transportar productos entre las ciudades. En cada viaje, el barco puede vender una cantidad de un producto y comprar otra cantidad de un producto diferente. Las cantidades a vender y comprar no son negativas y al menos una de ellas debe ser positiva.
+ * 
+ * El proceso comienza leyendo el número de productos y sus atributos, seguido de la estructura de la cuenca y los detalles del barco, incluyendo los productos que quiere comprar y vender y sus cantidades. No se consideran situaciones erróneas en los datos iniciales.
+*/
 #include <iostream>
 
 #include "River.hh"

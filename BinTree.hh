@@ -1,3 +1,7 @@
+/**
+ * @file BinTree.hh
+ * @brief Template de la clase BinTree, proporcionado por el profesorado de Programación II.
+*/
 #ifndef BINTREE_HH
 #define BINTREE_HH
 

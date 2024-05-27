@@ -1,3 +1,7 @@
+/**
+ * @file ProductInventoryStats.cc
+ * @brief Implementación de la clase ProductInventoryStats.
+*/
 #include "ProductInventoryStats.hh"
 
 // Constructoras

@@ -1,3 +1,7 @@
+/**
+ * @file Boat.cc
+ * @brief Implementación de la clase Boat.
+*/
 #include "Boat.hh"
 
 // Constuctoras
@@ -17,13 +21,6 @@ Boat::Boat(int productToBuyId, int buy_target, int productForSaleId, int availib
    this->availible = availible;
    travels = list<string>();
 }
-
-// Boat::Boat(const Boat &boat) {
-//    productForSaleId = boat.productForSaleId;
-//    availible = boat.availible;
-//    productToBuyId = boat.productToBuyId;
-//    buy_target = boat.buy_target;
-// }
 
 // Modificadoras
 

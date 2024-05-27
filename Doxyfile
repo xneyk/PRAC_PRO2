@@ -936,9 +936,10 @@ INPUT_ENCODING         = utf-8
 # *.vhdl, *.ucf, *.qsf and *.ice.
 
 FILE_PATTERNS          = *.hh \
+                        *.cc \
 		         pro2*.cc \
 			 main*.cc \
-			 program*.cc
+			 program*.cc \
 			 pro2*.cc
                         
 
@@ -957,7 +958,7 @@ RECURSIVE              = NO
 
 EXCLUDE                =  *~ \
 		       	  readbool.hh \
-			  pro2.cc
+			  BinTree.hh
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

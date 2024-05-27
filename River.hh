@@ -14,6 +14,7 @@ using namespace std;
 #endif
 
 #include "City.hh"
+#include "ProductInventoryStats.hh"
 #include "Boat.hh"
 #include "Travel.hh"
 

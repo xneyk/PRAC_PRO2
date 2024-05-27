@@ -1,3 +1,7 @@
+/**
+ * @file River.cc
+ * @brief Implementación de la clase River
+*/
 #include "River.hh"
 
 // Constructoras

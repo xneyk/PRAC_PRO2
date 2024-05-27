@@ -1,3 +1,7 @@
+/**
+ * @file Travel.cc
+ * @brief Implementación de la clase Travel
+*/
 #include "Travel.hh"
 
 // Constructoras

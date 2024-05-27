@@ -1,5 +1,8 @@
+/**
+ * @file Product.cc
+ * @brief Implementación de la clase Product.cc
+*/
 #include "Product.hh"
-
 
 // Constructoras
 
