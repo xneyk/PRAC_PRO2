@@ -13,7 +13,7 @@ Animo a cualquier compañero de curso que este leyendo este `README` a aprovecha
 
 Si se quiere probar el proyecto en local es tan fácil como:
 > [!warning] 
-> Asegurate de tener instalado un entorno de desarrollo de C++ con el compilador `g++`
+> Asegúrate de tener instalado un entorno de desarrollo de C++ con el compilador `g++`
 > También de disponer del comando `make` de Makefile.
 
 1. Clonar este repositorio
@@ -26,5 +26,5 @@ cd PRAC_PRO2
 make program.exe
 ```
 3. Ejecutar el programa `program.exe` y empezar a probarlo:)
-Asegurate de que conoces antes que entradas se esperan como datos iniciales, las condiciones que deben cumplir estos y cuales son las instrucciones con las que se interactua con el programa.
+Asegúrate de que conoces antes que entradas se esperan como datos iniciales, las condiciones que deben cumplir estos y cuales son las instrucciones con las que se interactua con el programa.
 Todas estas instrucciones las encontrarás en [la página web de la asignatura](https://www.cs.upc.edu/pro2/index.php?id=practica-primavera-2024) buscando el enunciado de esta práctica (Primavera 2024, Comercio Fluvial).
