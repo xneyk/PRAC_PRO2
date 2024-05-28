@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Comercio Fluvial: Referencia de la clase Travel</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Comercio Fluvial<span id="projectnumber">&#160;Primavera 2024</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="classTravel-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la clase Travel</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Un viaje (<a class="el" href="classTravel.html" title="Un viaje (Travel) representa y almacena toda la información relevante de un viaje comercial por la cu...">Travel</a>) representa y almacena toda la información relevante de un viaje comercial por la cuenca fluvial.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Travel_8hh_source.html">Travel.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:ad8a56c6efd7bd62aba03e00603174717" id="r_ad8a56c6efd7bd62aba03e00603174717"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8a56c6efd7bd62aba03e00603174717">Travel</a> (const <a class="el" href="classBoat.html">Boat</a> &amp;boat)</td></tr>
+<tr class="memdesc:ad8a56c6efd7bd62aba03e00603174717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creadora de viajes a partir de las propiedades de un barco.  <br /></td></tr>
+<tr class="separator:ad8a56c6efd7bd62aba03e00603174717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc1c1c7942c1a3a3a1df518782043f60" id="r_acc1c1c7942c1a3a3a1df518782043f60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc1c1c7942c1a3a3a1df518782043f60">updateStatus</a> (int bought, int sold)</td></tr>
+<tr class="memdesc:acc1c1c7942c1a3a3a1df518782043f60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actualiza la cantidad disponible y el objetivo de compra.  <br /></td></tr>
+<tr class="separator:acc1c1c7942c1a3a3a1df518782043f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae907a10a26247c9d9fb01f4365724ac0" id="r_ae907a10a26247c9d9fb01f4365724ac0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae907a10a26247c9d9fb01f4365724ac0">setLastTrade</a> (string city_name)</td></tr>
+<tr class="memdesc:ae907a10a26247c9d9fb01f4365724ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Añade "city_name" como la última ciudad con la que se ha comerciado.  <br /></td></tr>
+<tr class="separator:ae907a10a26247c9d9fb01f4365724ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc39bc803b1db9a701c337c7dd73cf85" id="r_abc39bc803b1db9a701c337c7dd73cf85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc39bc803b1db9a701c337c7dd73cf85">increaseLength</a> ()</td></tr>
+<tr class="memdesc:abc39bc803b1db9a701c337c7dd73cf85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incrementa en una unidad la longitud del viaje.  <br /></td></tr>
+<tr class="separator:abc39bc803b1db9a701c337c7dd73cf85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bc38e0862de2623865cee5f91d42444" id="r_a1bc38e0862de2623865cee5f91d42444"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bc38e0862de2623865cee5f91d42444">getLastTrade</a> () const</td></tr>
+<tr class="memdesc:a1bc38e0862de2623865cee5f91d42444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de la última ciudad con la que se ha comerciado en el viaje.  <br /></td></tr>
+<tr class="separator:a1bc38e0862de2623865cee5f91d42444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9b11c7470adaf79190bb3fab2f4efa0" id="r_af9b11c7470adaf79190bb3fab2f4efa0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9b11c7470adaf79190bb3fab2f4efa0">getLength</a> () const</td></tr>
+<tr class="memdesc:af9b11c7470adaf79190bb3fab2f4efa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de la longitud del viaje.  <br /></td></tr>
+<tr class="separator:af9b11c7470adaf79190bb3fab2f4efa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9e4fa78170f2b02e11674762898cb84" id="r_aa9e4fa78170f2b02e11674762898cb84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9e4fa78170f2b02e11674762898cb84">getProductToBuyId</a> () const</td></tr>
+<tr class="memdesc:aa9e4fa78170f2b02e11674762898cb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora del identificador del producta a comprar.  <br /></td></tr>
+<tr class="separator:aa9e4fa78170f2b02e11674762898cb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af63c503689b13293e6ea7349ce6babc3" id="r_af63c503689b13293e6ea7349ce6babc3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af63c503689b13293e6ea7349ce6babc3">getProductForSaleId</a> () const</td></tr>
+<tr class="memdesc:af63c503689b13293e6ea7349ce6babc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora del identificador del producta a vender.  <br /></td></tr>
+<tr class="separator:af63c503689b13293e6ea7349ce6babc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d723c8eac8a560350371beb77a6b81e" id="r_a0d723c8eac8a560350371beb77a6b81e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d723c8eac8a560350371beb77a6b81e">getBuyTarget</a> () const</td></tr>
+<tr class="memdesc:a0d723c8eac8a560350371beb77a6b81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de la cantidad que se debe vender para llegar al objetivo de compras.  <br /></td></tr>
+<tr class="separator:a0d723c8eac8a560350371beb77a6b81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340d9a1768f0e266b220d547ada1decc" id="r_a340d9a1768f0e266b220d547ada1decc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340d9a1768f0e266b220d547ada1decc">getStock</a> () const</td></tr>
+<tr class="memdesc:a340d9a1768f0e266b220d547ada1decc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de la cantidad disponible de producto a vender.  <br /></td></tr>
+<tr class="separator:a340d9a1768f0e266b220d547ada1decc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc0e9e40edd4f8161439fb13f4da73d" id="r_afcc0e9e40edd4f8161439fb13f4da73d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcc0e9e40edd4f8161439fb13f4da73d">objectiveAchived</a> () const</td></tr>
+<tr class="memdesc:afcc0e9e40edd4f8161439fb13f4da73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decide si se ha alcanzado el objetivo del viaje.  <br /></td></tr>
+<tr class="separator:afcc0e9e40edd4f8161439fb13f4da73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a985cec2b0a3ff6096216d985344249a4" id="r_a985cec2b0a3ff6096216d985344249a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a985cec2b0a3ff6096216d985344249a4">betterTravelThan</a> (const <a class="el" href="classTravel.html">Travel</a> &amp;travel) const</td></tr>
+<tr class="memdesc:a985cec2b0a3ff6096216d985344249a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decide si el viaje "travel" es mejor viaje que el parámetro implícito.  <br /></td></tr>
+<tr class="separator:a985cec2b0a3ff6096216d985344249a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Un viaje (<a class="el" href="classTravel.html" title="Un viaje (Travel) representa y almacena toda la información relevante de un viaje comercial por la cu...">Travel</a>) representa y almacena toda la información relevante de un viaje comercial por la cuenca fluvial. </p>
+<p>Es decir, este almacena cúal es su longitud, cúal ha sido la última ciudad con la que ha habido comercio y, el estado del barco una vez hecha la ruta hasta dicha ciudad (esta también incluida). </p>
+</div><h2 class="groupheader">Documentación de constructores y destructores</h2>
+<a id="ad8a56c6efd7bd62aba03e00603174717" name="ad8a56c6efd7bd62aba03e00603174717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a56c6efd7bd62aba03e00603174717">&#9670;&#160;</a></span>Travel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Travel::Travel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBoat.html">Boat</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boat</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creadora de viajes a partir de las propiedades de un barco. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>el producto que se vende, el que se compra, la cantidad disponible y el objetivo de compra es el mismo que para el barco "boat". La longitud del viaje es cero y el nombre de la última ciudad con la que se ha comerciado no esta definido. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                               {</div>
+<div class="line"><span class="lineno">   10</span>   product_to_buy_id = boat.<a class="code hl_function" href="classBoat.html#a0e479ec1fb99086cf15f40d396d07b1f">getProductToBuyId</a>();</div>
+<div class="line"><span class="lineno">   11</span>   buy_target = boat.<a class="code hl_function" href="classBoat.html#afd54fd6c2712b767574f0e8a6f2706fd">getBuyTarget</a>();</div>
+<div class="line"><span class="lineno">   12</span>   product_for_sale_id = boat.<a class="code hl_function" href="classBoat.html#aac1dab6e56011abb46745a948ee79fc7">getProductForSaleId</a>();</div>
+<div class="line"><span class="lineno">   13</span>   stock = boat.<a class="code hl_function" href="classBoat.html#a9d82a473487ac19b18a494c446955814">getAvailible</a>();</div>
+<div class="line"><span class="lineno">   14</span>   length = 0;</div>
+<div class="line"><span class="lineno">   15</span>   last_trade = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   16</span>}</div>
+<div class="ttc" id="aclassBoat_html_a0e479ec1fb99086cf15f40d396d07b1f"><div class="ttname"><a href="classBoat.html#a0e479ec1fb99086cf15f40d396d07b1f">Boat::getProductToBuyId</a></div><div class="ttdeci">int getProductToBuyId() const</div><div class="ttdoc">Consultora del identificador del producto que se debe vender.</div><div class="ttdef"><b>Definition</b> Boat.cc:60</div></div>
+<div class="ttc" id="aclassBoat_html_a9d82a473487ac19b18a494c446955814"><div class="ttname"><a href="classBoat.html#a9d82a473487ac19b18a494c446955814">Boat::getAvailible</a></div><div class="ttdeci">int getAvailible() const</div><div class="ttdoc">Consultora de la cantidad disponible del producto a la venta.</div><div class="ttdef"><b>Definition</b> Boat.cc:56</div></div>
+<div class="ttc" id="aclassBoat_html_aac1dab6e56011abb46745a948ee79fc7"><div class="ttname"><a href="classBoat.html#aac1dab6e56011abb46745a948ee79fc7">Boat::getProductForSaleId</a></div><div class="ttdeci">int getProductForSaleId() const</div><div class="ttdoc">Consultora del identificador del producto que se debe comprar.</div><div class="ttdef"><b>Definition</b> Boat.cc:64</div></div>
+<div class="ttc" id="aclassBoat_html_afd54fd6c2712b767574f0e8a6f2706fd"><div class="ttname"><a href="classBoat.html#afd54fd6c2712b767574f0e8a6f2706fd">Boat::getBuyTarget</a></div><div class="ttdeci">int getBuyTarget() const</div><div class="ttdoc">Consultora de la cantidad de producto de compra que tiene.</div><div class="ttdef"><b>Definition</b> Boat.cc:52</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a985cec2b0a3ff6096216d985344249a4" name="a985cec2b0a3ff6096216d985344249a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985cec2b0a3ff6096216d985344249a4">&#9670;&#160;</a></span>betterTravelThan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Travel::betterTravelThan </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTravel.html">Travel</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>travel</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decide si el viaje "travel" es mejor viaje que el parámetro implícito. </p>
+<p>Mejor viaje: Se ordenan en nivel de importancia de decisión. Si no deciden se comprueva la siguiente condición</p><ol type="1">
+<li>El total de productos comprados y vendidos es mayor.</li>
+<li>El viaje es más corto</li>
+<li>En caso de empate gana el parámetro implícito</li>
+</ol>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna "true" si el parámetro implícito es mejor, "false" en caso contrario. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>                                                        {</div>
+<div class="line"><span class="lineno">   64</span>   <span class="keywordflow">if</span> (buy_target + stock != travel.buy_target + travel.stock) <span class="keywordflow">return</span> buy_target + stock &lt; travel.buy_target + travel.stock;</div>
+<div class="line"><span class="lineno">   65</span>   <span class="keywordflow">if</span> (length != travel.length) <span class="keywordflow">return</span> length &lt; travel.length;</div>
+<div class="line"><span class="lineno">   66</span>   </div>
+<div class="line"><span class="lineno">   67</span>   <span class="comment">// Empate ==&gt; &quot;El parámetro implícito&quot; és mejor.</span></div>
+<div class="line"><span class="lineno">   68</span>   <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   69</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0d723c8eac8a560350371beb77a6b81e" name="a0d723c8eac8a560350371beb77a6b81e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d723c8eac8a560350371beb77a6b81e">&#9670;&#160;</a></span>getBuyTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Travel::getBuyTarget </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consultora de la cantidad que se debe vender para llegar al objetivo de compras. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna la cantidad que se debe vender para llegar al objetivo de compras. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>                               {</div>
+<div class="line"><span class="lineno">   52</span>   <span class="keywordflow">return</span> buy_target;</div>
+<div class="line"><span class="lineno">   53</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1bc38e0862de2623865cee5f91d42444" name="a1bc38e0862de2623865cee5f91d42444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bc38e0862de2623865cee5f91d42444">&#9670;&#160;</a></span>getLastTrade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Travel::getLastTrade </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consultora de la última ciudad con la que se ha comerciado en el viaje. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna el nombre de la última ciudad con la que se ha comerciado. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>                                  {</div>
+<div class="line"><span class="lineno">   36</span>   <span class="keywordflow">return</span> last_trade;</div>
+<div class="line"><span class="lineno">   37</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af9b11c7470adaf79190bb3fab2f4efa0" name="af9b11c7470adaf79190bb3fab2f4efa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9b11c7470adaf79190bb3fab2f4efa0">&#9670;&#160;</a></span>getLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Travel::getLength </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consultora de la longitud del viaje. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna la longitud del viaje. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>                            {</div>
+<div class="line"><span class="lineno">   40</span>   <span class="keywordflow">return</span> length;</div>
+<div class="line"><span class="lineno">   41</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af63c503689b13293e6ea7349ce6babc3" name="af63c503689b13293e6ea7349ce6babc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af63c503689b13293e6ea7349ce6babc3">&#9670;&#160;</a></span>getProductForSaleId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Travel::getProductForSaleId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consultora del identificador del producta a vender. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna el identificador del producta a vender. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>                                      {</div>
+<div class="line"><span class="lineno">   48</span>   <span class="keywordflow">return</span> product_for_sale_id;</div>
+<div class="line"><span class="lineno">   49</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa9e4fa78170f2b02e11674762898cb84" name="aa9e4fa78170f2b02e11674762898cb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9e4fa78170f2b02e11674762898cb84">&#9670;&#160;</a></span>getProductToBuyId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Travel::getProductToBuyId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consultora del identificador del producta a comprar. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna el identificador del producto a comprar. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>                                    {</div>
+<div class="line"><span class="lineno">   44</span>   <span class="keywordflow">return</span> product_to_buy_id;</div>
+<div class="line"><span class="lineno">   45</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a340d9a1768f0e266b220d547ada1decc" name="a340d9a1768f0e266b220d547ada1decc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340d9a1768f0e266b220d547ada1decc">&#9670;&#160;</a></span>getStock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Travel::getStock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consultora de la cantidad disponible de producto a vender. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna la cantidad disponible del producto a vender. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>                           {</div>
+<div class="line"><span class="lineno">   56</span>   <span class="keywordflow">return</span> stock;</div>
+<div class="line"><span class="lineno">   57</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abc39bc803b1db9a701c337c7dd73cf85" name="abc39bc803b1db9a701c337c7dd73cf85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc39bc803b1db9a701c337c7dd73cf85">&#9670;&#160;</a></span>increaseLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Travel::increaseLength </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Incrementa en una unidad la longitud del viaje. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>longitud = longitud + 1. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>                            {</div>
+<div class="line"><span class="lineno">   30</span>   ++length;</div>
+<div class="line"><span class="lineno">   31</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afcc0e9e40edd4f8161439fb13f4da73d" name="afcc0e9e40edd4f8161439fb13f4da73d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc0e9e40edd4f8161439fb13f4da73d">&#9670;&#160;</a></span>objectiveAchived()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Travel::objectiveAchived </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decide si se ha alcanzado el objetivo del viaje. </p>
+<p>Es decir, si se ha comprado tantas unidades como se deseaba y se ha vendido todos los productos. </p><dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna "true" si la cantidad que se debe vender para llegar al objetivo de compras y la cantidad disponible es 0, "false" en caso contrario. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>                                    {</div>
+<div class="line"><span class="lineno">   60</span>   <span class="keywordflow">return</span> buy_target == 0 and stock == 0;</div>
+<div class="line"><span class="lineno">   61</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae907a10a26247c9d9fb01f4365724ac0" name="ae907a10a26247c9d9fb01f4365724ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae907a10a26247c9d9fb01f4365724ac0">&#9670;&#160;</a></span>setLastTrade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Travel::setLastTrade </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Añade "city_name" como la última ciudad con la que se ha comerciado. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Se ha asignado "city_name" como última ciudad de este viaje. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   25</span>                                          {</div>
+<div class="line"><span class="lineno">   26</span>   last_trade = city_name;</div>
+<div class="line"><span class="lineno">   27</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="acc1c1c7942c1a3a3a1df518782043f60" name="acc1c1c7942c1a3a3a1df518782043f60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc1c1c7942c1a3a3a1df518782043f60">&#9670;&#160;</a></span>updateStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Travel::updateStatus </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>bought</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sold</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actualiza la cantidad disponible y el objetivo de compra. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El objetivo de compra ha disminuido "bought" y la cantidad disponible ha disminuido sold. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>                                              {</div>
+<div class="line"><span class="lineno">   21</span>   buy_target -= bought;</div>
+<div class="line"><span class="lineno">   22</span>   stock -= sold;</div>
+<div class="line"><span class="lineno">   23</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li><a class="el" href="Travel_8hh_source.html">Travel.hh</a></li>
+<li><a class="el" href="Travel_8cc.html">Travel.cc</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

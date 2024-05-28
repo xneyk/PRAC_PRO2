@@ -1,0 +1,17 @@
+<map id="River.hh" name="River.hh">
+<area shape="rect" id="Node000001" title="Especificación de la clase River." alt="" coords="226,5,295,31"/>
+<area shape="rect" id="Node000002" href="$City_8hh.html" title="Especificación de la clase City." alt="" coords="136,79,198,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,34,196,72,193,67,243,29"/>
+<area shape="rect" id="Node000005" href="$ProductInventoryStats_8hh.html" title="Especificación de la clase ProductInventoryStats." alt="" coords="134,153,304,178"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="259,32,229,138,224,137,254,31"/>
+<area shape="rect" id="Node000006" href="$Boat_8hh.html" title="Especificación de la clase Boat." alt="" coords="327,153,393,178"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="269,30,313,103,342,139,337,143,309,106,264,33"/>
+<area shape="rect" id="Node000007" href="$Travel_8hh.html" title="Especificación de la clase Travel." alt="" coords="323,79,398,105"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="279,29,332,67,329,72,276,34"/>
+<area shape="rect" id="Node000003" href="$ProductSet_8hh.html" title="Especificación de la classe ProductSet." alt="" coords="5,153,110,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="150,107,90,146,87,142,147,103"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="178,103,203,138,199,142,173,106"/>
+<area shape="rect" id="Node000004" href="$Product_8hh.html" title="Especificación de la clase Product." alt="" coords="15,226,100,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="60,179,60,211,55,211,55,179"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="363,105,363,137,358,137,358,105"/>
+</map>

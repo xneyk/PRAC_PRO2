@@ -1,0 +1,21 @@
+<map id="program.cc" name="program.cc">
+<area shape="rect" id="Node000001" title="Este es el programa principal, el cual proporciona una especie de CLI con la que podemos interactuar ..." alt="" coords="115,5,201,31"/>
+<area shape="rect" id="Node000002" href="$River_8hh.html" title="Especificación de la clase River." alt="" coords="123,79,193,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,31,161,63,155,63,155,31"/>
+<area shape="rect" id="Node000004" href="$ProductSet_8hh.html" title="Especificación de la classe ProductSet." alt="" coords="293,226,397,252"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="175,30,231,80,296,151,335,212,330,215,292,154,227,84,171,34"/>
+<area shape="rect" id="Node000007" href="$Boat_8hh.html" title="Especificación de la clase Boat." alt="" coords="9,226,75,252"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="136,34,106,53,70,80,37,114,11,154,8,168,10,184,25,213,20,215,5,185,3,168,6,152,32,110,67,76,103,49,134,29"/>
+<area shape="rect" id="Node000003" href="$City_8hh.html" title="Especificación de la clase City." alt="" coords="221,153,282,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="176,103,225,141,222,145,172,107"/>
+<area shape="rect" id="Node000006" href="$ProductInventoryStats_8hh.html" title="Especificación de la clase ProductInventoryStats." alt="" coords="99,226,268,252"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="163,105,181,210,176,211,158,105"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="155,106,136,140,110,180,71,218,68,214,105,177,132,138,150,104"/>
+<area shape="rect" id="Node000008" href="$Travel_8hh.html" title="Especificación de la clase Travel." alt="" coords="20,153,96,178"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="143,107,89,145,86,141,140,103"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="269,177,319,215,316,219,266,181"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="242,180,207,217,203,213,238,177"/>
+<area shape="rect" id="Node000005" href="$Product_8hh.html" title="Especificación de la clase Product." alt="" coords="303,300,387,326"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="347,252,347,284,342,284,342,252"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="58,179,51,211,46,210,53,178"/>
+</map>

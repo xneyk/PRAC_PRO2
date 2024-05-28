@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Comercio Fluvial: Referencia de la clase River</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Comercio Fluvial<span id="projectnumber">&#160;Primavera 2024</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="classRiver-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la clase River</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Un río (<a class="el" href="classRiver.html" title="Un río (River) representa una estructura (arborescente) donde hay ciudades en sus fuentes/nacimientos...">River</a>) representa una estructura (arborescente) donde hay ciudades en sus fuentes/nacimientos y en los puntos en que dos afluentes se unen, incluida la desembocadura, donde casualmente se unen dos afluentes. No hay ciudades en tramos del río que no sean nacimientos o uniones de afluentes.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="River_8hh_source.html">River.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a305d3ec8496a5373328045da3b8d8362" id="r_a305d3ec8496a5373328045da3b8d8362"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a305d3ec8496a5373328045da3b8d8362">River</a> ()</td></tr>
+<tr class="memdesc:a305d3ec8496a5373328045da3b8d8362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creadora de rios vacios.  <br /></td></tr>
+<tr class="separator:a305d3ec8496a5373328045da3b8d8362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa275ac48e7c0651c701a3cf6e59a4cc2" id="r_aa275ac48e7c0651c701a3cf6e59a4cc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa275ac48e7c0651c701a3cf6e59a4cc2">existsCityWithId</a> (string name) const</td></tr>
+<tr class="memdesc:aa275ac48e7c0651c701a3cf6e59a4cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprueva si en el rio existe una ciudad con identificador "name".  <br /></td></tr>
+<tr class="separator:aa275ac48e7c0651c701a3cf6e59a4cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4000197195d31a2dd60d2f4f231ee146" id="r_a4000197195d31a2dd60d2f4f231ee146"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4000197195d31a2dd60d2f4f231ee146">cityHasProduct</a> (string city_name, int id) const</td></tr>
+<tr class="memdesc:a4000197195d31a2dd60d2f4f231ee146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprueva si la ciudad "city_name" tiene el producto "id" en su inventario.  <br /></td></tr>
+<tr class="separator:a4000197195d31a2dd60d2f4f231ee146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16553cc42508d0477a1dbe059d9fdddd" id="r_a16553cc42508d0477a1dbe059d9fdddd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16553cc42508d0477a1dbe059d9fdddd">getProductOwnedById</a> (string city_name, int product_id) const</td></tr>
+<tr class="memdesc:a16553cc42508d0477a1dbe059d9fdddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de las unidades del producto "id" que tiene la ciudad "city_name".  <br /></td></tr>
+<tr class="separator:a16553cc42508d0477a1dbe059d9fdddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17f2de96e74d485b0765a5036a52b1aa" id="r_a17f2de96e74d485b0765a5036a52b1aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17f2de96e74d485b0765a5036a52b1aa">getProductNeededById</a> (string city_name, int product_id) const</td></tr>
+<tr class="memdesc:a17f2de96e74d485b0765a5036a52b1aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consultora de las unidades del producto "id" que necesita la ciudad "city_name".  <br /></td></tr>
+<tr class="separator:a17f2de96e74d485b0765a5036a52b1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae838b9e62e751e643a7d922e2ac9a999" id="r_ae838b9e62e751e643a7d922e2ac9a999"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae838b9e62e751e643a7d922e2ac9a999">addProduct</a> (string city_name, int id, const <a class="el" href="classProductSet.html">ProductSet</a> &amp;product_set, int owned, int needed)</td></tr>
+<tr class="memdesc:ae838b9e62e751e643a7d922e2ac9a999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Añade el producto con identificador "id" al inventario de la ciudad "city_name".  <br /></td></tr>
+<tr class="separator:ae838b9e62e751e643a7d922e2ac9a999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75333e0e09fc945cc0cdd11702aa9c5d" id="r_a75333e0e09fc945cc0cdd11702aa9c5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75333e0e09fc945cc0cdd11702aa9c5d">setProductStatus</a> (string city_name, int id, const <a class="el" href="classProductSet.html">ProductSet</a> &amp;product_set, int new_owned, int new_needed)</td></tr>
+<tr class="memdesc:a75333e0e09fc945cc0cdd11702aa9c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica los datos del producto con identificador "id" en el inventario de la ciudad "city_name".  <br /></td></tr>
+<tr class="separator:a75333e0e09fc945cc0cdd11702aa9c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9456f318afee5ba8f9bd0411e5fa53f8" id="r_a9456f318afee5ba8f9bd0411e5fa53f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9456f318afee5ba8f9bd0411e5fa53f8">removeProduct</a> (string city_name, int id, const <a class="el" href="classProductSet.html">ProductSet</a> &amp;product_set)</td></tr>
+<tr class="memdesc:a9456f318afee5ba8f9bd0411e5fa53f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina el producto "id" del inventario de la ciudad "city_name".  <br /></td></tr>
+<tr class="separator:a9456f318afee5ba8f9bd0411e5fa53f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10ddef529957235d8d3b7793b866a6cc" id="r_a10ddef529957235d8d3b7793b866a6cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10ddef529957235d8d3b7793b866a6cc">trade</a> (string city_A, string city_B, const <a class="el" href="classProductSet.html">ProductSet</a> &amp;product_set)</td></tr>
+<tr class="memdesc:a10ddef529957235d8d3b7793b866a6cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dos ciudades (existentes) del rio comercian entre ellas.  <br /></td></tr>
+<tr class="separator:a10ddef529957235d8d3b7793b866a6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a150c8d38fa0312d86b86c807483e85c4" id="r_a150c8d38fa0312d86b86c807483e85c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a150c8d38fa0312d86b86c807483e85c4">redistribute</a> (const <a class="el" href="classProductSet.html">ProductSet</a> &amp;product_set)</td></tr>
+<tr class="memdesc:a150c8d38fa0312d86b86c807483e85c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A partir de la ciudad de la desembocadura, cada ciudad comerciará con las dos ciudades inmediatamente situadas río arriba.  <br /></td></tr>
+<tr class="separator:a150c8d38fa0312d86b86c807483e85c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3e8489f80c7a44e0016b34c1c983e4d" id="r_ac3e8489f80c7a44e0016b34c1c983e4d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3e8489f80c7a44e0016b34c1c983e4d">travel</a> (<a class="el" href="classBoat.html">Boat</a> &amp;boat, const <a class="el" href="classProductSet.html">ProductSet</a> &amp;product_set)</td></tr>
+<tr class="memdesc:ac3e8489f80c7a44e0016b34c1c983e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acción de comerció entre un barco y una ruta ciudades del Rio.  <br /></td></tr>
+<tr class="separator:ac3e8489f80c7a44e0016b34c1c983e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa63888336261fd57b19b7682b7d0a85f" id="r_aa63888336261fd57b19b7682b7d0a85f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa63888336261fd57b19b7682b7d0a85f">read</a> ()</td></tr>
+<tr class="memdesc:aa63888336261fd57b19b7682b7d0a85f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input de la clase <a class="el" href="classRiver.html" title="Un río (River) representa una estructura (arborescente) donde hay ciudades en sus fuentes/nacimientos...">River</a>.  <br /></td></tr>
+<tr class="separator:aa63888336261fd57b19b7682b7d0a85f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00be16307fc6918296f725a48dccb471" id="r_a00be16307fc6918296f725a48dccb471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00be16307fc6918296f725a48dccb471">readCityWithId</a> (string city_name, const <a class="el" href="classProductSet.html">ProductSet</a> &amp;product_set)</td></tr>
+<tr class="memdesc:a00be16307fc6918296f725a48dccb471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input de una ciudad por el canal estándar.  <br /></td></tr>
+<tr class="separator:a00be16307fc6918296f725a48dccb471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8048acd57b104adc47066affac26a19" id="r_ac8048acd57b104adc47066affac26a19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8048acd57b104adc47066affac26a19">printCityWithId</a> (string city_name) const</td></tr>
+<tr class="memdesc:ac8048acd57b104adc47066affac26a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output del contenido de una ciudad del parámetro implícito.  <br /></td></tr>
+<tr class="separator:ac8048acd57b104adc47066affac26a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df573b71e4c84bbfbab6e5fd24906ee" id="r_a1df573b71e4c84bbfbab6e5fd24906ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1df573b71e4c84bbfbab6e5fd24906ee">printCityWeightAndVolume</a> (string city_name) const</td></tr>
+<tr class="memdesc:a1df573b71e4c84bbfbab6e5fd24906ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output del peso y volumen total de una ciudad del parámetro implícito.  <br /></td></tr>
+<tr class="separator:a1df573b71e4c84bbfbab6e5fd24906ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b061bb77e8b6af9ec851edfbebc817" id="r_ab3b061bb77e8b6af9ec851edfbebc817"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3b061bb77e8b6af9ec851edfbebc817">printProductStatsById</a> (string city_name, int id)</td></tr>
+<tr class="memdesc:ab3b061bb77e8b6af9ec851edfbebc817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output del estado de un producto en el inventario de una ciudad del parámetro implícito.  <br /></td></tr>
+<tr class="separator:ab3b061bb77e8b6af9ec851edfbebc817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7398d51b31ba2d805b08c5dc332f14e2" id="r_a7398d51b31ba2d805b08c5dc332f14e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7398d51b31ba2d805b08c5dc332f14e2">printRiver</a> ()</td></tr>
+<tr class="separator:a7398d51b31ba2d805b08c5dc332f14e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Un río (<a class="el" href="classRiver.html" title="Un río (River) representa una estructura (arborescente) donde hay ciudades en sus fuentes/nacimientos...">River</a>) representa una estructura (arborescente) donde hay ciudades en sus fuentes/nacimientos y en los puntos en que dos afluentes se unen, incluida la desembocadura, donde casualmente se unen dos afluentes. No hay ciudades en tramos del río que no sean nacimientos o uniones de afluentes. </p>
+</div><h2 class="groupheader">Documentación de constructores y destructores</h2>
+<a id="a305d3ec8496a5373328045da3b8d8362" name="a305d3ec8496a5373328045da3b8d8362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a305d3ec8496a5373328045da3b8d8362">&#9670;&#160;</a></span>River()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">River::River </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creadora de rios vacios. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Se ha creado una nueva instancia de rio, dicho rio sin afluentes y por ende, sin ciudades. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>             {</div>
+<div class="line"><span class="lineno">   10</span>   structure = BinTree&lt;string&gt;();</div>
+<div class="line"><span class="lineno">   11</span>   citySet = map&lt;string, City&gt;();</div>
+<div class="line"><span class="lineno">   12</span>   cityPreorder = map&lt;string, int&gt;();</div>
+<div class="line"><span class="lineno">   13</span>   total_cities = 0;</div>
+<div class="line"><span class="lineno">   14</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="ae838b9e62e751e643a7d922e2ac9a999" name="ae838b9e62e751e643a7d922e2ac9a999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae838b9e62e751e643a7d922e2ac9a999">&#9670;&#160;</a></span>addProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::addProduct </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProductSet.html">ProductSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>product_set</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>owned</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>needed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Añade el producto con identificador "id" al inventario de la ciudad "city_name". </p>
+<dl class="section pre"><dt>Precondición</dt><dd>El producto con id "id" existe y no se encuentra dentro del inventario de la ciudad "city_name". "owned" &gt;= 0 y "needed" &gt; 0. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>En el inventario de la ciudad "city_name" hay un nuevo producto con id "id". La ciudad "city_name". tiene "owned" uds. del producto y necesita "needed" uds. del producto. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>                                                                                                     {</div>
+<div class="line"><span class="lineno">   37</span>   citySet.at(city_name).addProduct(<span class="keywordtype">id</span>, product_set, owned, needed);</div>
+<div class="line"><span class="lineno">   38</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4000197195d31a2dd60d2f4f231ee146" name="a4000197195d31a2dd60d2f4f231ee146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4000197195d31a2dd60d2f4f231ee146">&#9670;&#160;</a></span>cityHasProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool River::cityHasProduct </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comprueva si la ciudad "city_name" tiene el producto "id" en su inventario. </p>
+<dl class="section warning"><dt>Atención</dt><dd>Se considera que lo tiene aunque sus unidades sean 0. </dd></dl>
+<dl class="section pre"><dt>Precondición</dt><dd>La ciudad "city_name" existe. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna retorna "true" en caso de contenterlo, "false" en caso contrario. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>                                                         {</div>
+<div class="line"><span class="lineno">   23</span>   <span class="keywordflow">return</span> citySet.at(city_name).hasProduct(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">   24</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa275ac48e7c0651c701a3cf6e59a4cc2" name="aa275ac48e7c0651c701a3cf6e59a4cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa275ac48e7c0651c701a3cf6e59a4cc2">&#9670;&#160;</a></span>existsCityWithId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool River::existsCityWithId </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comprueva si en el rio existe una ciudad con identificador "name". </p>
+<dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna "true" en caso de exisitir, "false" en caso contrario. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   18</span>                                              {</div>
+<div class="line"><span class="lineno">   19</span>   <span class="keywordflow">return</span> citySet.find(name) != citySet.end();</div>
+<div class="line"><span class="lineno">   20</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a17f2de96e74d485b0765a5036a52b1aa" name="a17f2de96e74d485b0765a5036a52b1aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17f2de96e74d485b0765a5036a52b1aa">&#9670;&#160;</a></span>getProductNeededById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int River::getProductNeededById </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>product_id</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consultora de las unidades del producto "id" que necesita la ciudad "city_name". </p>
+<dl class="section pre"><dt>Precondición</dt><dd>El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna el numero de unidades del producto "id" que necesita la ciudad "city_name". </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                                                                      {</div>
+<div class="line"><span class="lineno">   31</span>   <span class="keywordflow">return</span> citySet.at(city_name).getNeededById(product_id);</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a16553cc42508d0477a1dbe059d9fdddd" name="a16553cc42508d0477a1dbe059d9fdddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16553cc42508d0477a1dbe059d9fdddd">&#9670;&#160;</a></span>getProductOwnedById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int River::getProductOwnedById </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>product_id</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consultora de las unidades del producto "id" que tiene la ciudad "city_name". </p>
+<dl class="section pre"><dt>Precondición</dt><dd>El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Retorna el numero de unidades del producto "id" que tiene la ciudad "city_name". </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>                                                                     {</div>
+<div class="line"><span class="lineno">   27</span>   <span class="keywordflow">return</span> citySet.at(city_name).getOwnedById(product_id);</div>
+<div class="line"><span class="lineno">   28</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1df573b71e4c84bbfbab6e5fd24906ee" name="a1df573b71e4c84bbfbab6e5fd24906ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df573b71e4c84bbfbab6e5fd24906ee">&#9670;&#160;</a></span>printCityWeightAndVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::printCityWeightAndVolume </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Output del peso y volumen total de una ciudad del parámetro implícito. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>La ciudad se encuentra en el parámetro implícito </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Se ha dejado en el canal estandard de salida el peso y volumen total de la ciudad. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>                                                           {</div>
+<div class="line"><span class="lineno">   96</span>   <a class="code hl_class" href="classCity.html">City</a> city = citySet.at(city_name);</div>
+<div class="line"><span class="lineno">   97</span>   cout &lt;&lt; city.<a class="code hl_function" href="classCity.html#a46a01d01c740618ad01fc07be1c892a7">getTotalWeight</a>() &lt;&lt; <span class="charliteral">&#39; &#39;</span> &lt;&lt; city.<a class="code hl_function" href="classCity.html#a7c84d75790c1c30225a3192b234dea43">getTotalVolume</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   98</span>}</div>
+<div class="ttc" id="aclassCity_html"><div class="ttname"><a href="classCity.html">City</a></div><div class="ttdoc">Representa una ciudad. Cada ciudad tiene un nombre y un inventario. Un inventario es un contenedor de...</div><div class="ttdef"><b>Definition</b> City.hh:22</div></div>
+<div class="ttc" id="aclassCity_html_a46a01d01c740618ad01fc07be1c892a7"><div class="ttname"><a href="classCity.html#a46a01d01c740618ad01fc07be1c892a7">City::getTotalWeight</a></div><div class="ttdeci">int getTotalWeight() const</div><div class="ttdoc">Consultora de peso total de un inventario.</div><div class="ttdef"><b>Definition</b> City.cc:108</div></div>
+<div class="ttc" id="aclassCity_html_a7c84d75790c1c30225a3192b234dea43"><div class="ttname"><a href="classCity.html#a7c84d75790c1c30225a3192b234dea43">City::getTotalVolume</a></div><div class="ttdeci">int getTotalVolume() const</div><div class="ttdoc">Consultora de volumen total de un inventario.</div><div class="ttdef"><b>Definition</b> City.cc:112</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac8048acd57b104adc47066affac26a19" name="ac8048acd57b104adc47066affac26a19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8048acd57b104adc47066affac26a19">&#9670;&#160;</a></span>printCityWithId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::printCityWithId </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Output del contenido de una ciudad del parámetro implícito. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>La ciudad se encuentra en el parámetro implícito </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Se ha dejado en el canal estandard de salida el nombre de la ciudad seguido de su inventario. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>                                                  {</div>
+<div class="line"><span class="lineno">   92</span>   citySet.at(city_name).printInventory();</div>
+<div class="line"><span class="lineno">   93</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab3b061bb77e8b6af9ec851edfbebc817" name="ab3b061bb77e8b6af9ec851edfbebc817"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b061bb77e8b6af9ec851edfbebc817">&#9670;&#160;</a></span>printProductStatsById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::printProductStatsById </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Output del estado de un producto en el inventario de una ciudad del parámetro implícito. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>La ciudad se encuentra en el parámetro implícito, el producto se encuentra en su inventario. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Se ha dejado en el canal estandard de salida cuantas uds. tiene y cuantas uds. necesita la ciudad de dicho producto. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  100</span>                                                          {</div>
+<div class="line"><span class="lineno">  101</span>   <a class="code hl_class" href="classProductInventoryStats.html">ProductInventoryStats</a> product_stats = citySet.at(city_name).getProductStats(<span class="keywordtype">id</span>);</div>
+<div class="line"><span class="lineno">  102</span>   cout &lt;&lt; product_stats.<a class="code hl_function" href="classProductInventoryStats.html#adbb16db6ba54780854d54889066c9795">getOwned</a>() &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><span class="lineno">  103</span>   cout &lt;&lt; product_stats.<a class="code hl_function" href="classProductInventoryStats.html#a7c94d297d2e3dd4244931ead48473656">getNeeded</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  104</span>}</div>
+<div class="ttc" id="aclassProductInventoryStats_html"><div class="ttname"><a href="classProductInventoryStats.html">ProductInventoryStats</a></div><div class="ttdoc">Representa un producto dentro de un inventario. La información almacenada sobre el producto es cuanta...</div><div class="ttdef"><b>Definition</b> ProductInventoryStats.hh:13</div></div>
+<div class="ttc" id="aclassProductInventoryStats_html_a7c94d297d2e3dd4244931ead48473656"><div class="ttname"><a href="classProductInventoryStats.html#a7c94d297d2e3dd4244931ead48473656">ProductInventoryStats::getNeeded</a></div><div class="ttdeci">int getNeeded() const</div><div class="ttdoc">Consultora de unidades necesarias.</div><div class="ttdef"><b>Definition</b> ProductInventoryStats.cc:35</div></div>
+<div class="ttc" id="aclassProductInventoryStats_html_adbb16db6ba54780854d54889066c9795"><div class="ttname"><a href="classProductInventoryStats.html#adbb16db6ba54780854d54889066c9795">ProductInventoryStats::getOwned</a></div><div class="ttdeci">int getOwned() const</div><div class="ttdoc">Consultora de unidades disponibles.</div><div class="ttdef"><b>Definition</b> ProductInventoryStats.cc:31</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7398d51b31ba2d805b08c5dc332f14e2" name="a7398d51b31ba2d805b08c5dc332f14e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7398d51b31ba2d805b08c5dc332f14e2">&#9670;&#160;</a></span>printRiver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::printRiver </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa63888336261fd57b19b7682b7d0a85f" name="aa63888336261fd57b19b7682b7d0a85f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa63888336261fd57b19b7682b7d0a85f">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::read </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Input de la clase <a class="el" href="classRiver.html" title="Un río (River) representa una estructura (arborescente) donde hay ciudades en sus fuentes/nacimientos...">River</a>. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>La información del nuevo rio se encuentra en el canal estandard siguiendo el formato específico. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Se ha sobre escrito parámetro implícito con la nueva estructura de la cuenta. Todas sus ciudades han quedado con el inventario vacio. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>                 {</div>
+<div class="line"><span class="lineno">   81</span>   (*this) = <a class="code hl_function" href="#a305d3ec8496a5373328045da3b8d8362">River</a>();</div>
+<div class="line"><span class="lineno">   82</span>   <span class="comment">// Al leer un rio es como si se creara uno nuevo.</span></div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>   structure = buildRiver();</div>
+<div class="line"><span class="lineno">   85</span>}</div>
+<div class="ttc" id="aclassRiver_html_a305d3ec8496a5373328045da3b8d8362"><div class="ttname"><a href="#a305d3ec8496a5373328045da3b8d8362">River::River</a></div><div class="ttdeci">River()</div><div class="ttdoc">Creadora de rios vacios.</div><div class="ttdef"><b>Definition</b> River.cc:9</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a00be16307fc6918296f725a48dccb471" name="a00be16307fc6918296f725a48dccb471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00be16307fc6918296f725a48dccb471">&#9670;&#160;</a></span>readCityWithId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::readCityWithId </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProductSet.html">ProductSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>product_set</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Input de una ciudad por el canal estándar. </p>
+<dl class="section pre"><dt>Precondición</dt><dd>En el canal estándar se encuentra la información del inventario en el siguiente formato: se lee un número indicando cuatos productos se añaden. A continuación vienen n lineas de "product_id" "owned" "needed". "needed" &gt; 0. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Se ha leido la información pertinente de la ciudad y todos los datos se encuentran disponibles en el parámetro implicito. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>                                                                          {</div>
+<div class="line"><span class="lineno">   88</span>   citySet.at(city_name).read(product_set);</div>
+<div class="line"><span class="lineno">   89</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a150c8d38fa0312d86b86c807483e85c4" name="a150c8d38fa0312d86b86c807483e85c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a150c8d38fa0312d86b86c807483e85c4">&#9670;&#160;</a></span>redistribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::redistribute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classProductSet.html">ProductSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>product_set</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A partir de la ciudad de la desembocadura, cada ciudad comerciará con las dos ciudades inmediatamente situadas río arriba. </p>
+<p>Primero comerciará la ciudad de la desembocadura con la ciudad río arriba a mano derecha y luego con la ciudad río arriba a mano izquierda, y así sucesivamente, hasta llegar a las ciudades de los nacimientos. </p><dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Todas las ciudades han comerciado con sus vecinos immediados. primero con la situada a la derecha y luego con la situada a la izquierda. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                      {</div>
+<div class="line"><span class="lineno">   53</span>   <span class="keywordflow">if</span> (not structure.empty()) {</div>
+<div class="line"><span class="lineno">   54</span>      redistribute(structure, product_set);</div>
+<div class="line"><span class="lineno">   55</span>   }</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9456f318afee5ba8f9bd0411e5fa53f8" name="a9456f318afee5ba8f9bd0411e5fa53f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9456f318afee5ba8f9bd0411e5fa53f8">&#9670;&#160;</a></span>removeProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::removeProduct </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProductSet.html">ProductSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>product_set</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Elimina el producto "id" del inventario de la ciudad "city_name". </p>
+<dl class="section pre"><dt>Precondición</dt><dd>El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". "city_name" se encuentra en el parámetro implícito. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El inventario de la ciudad "city_name" ya no contiene el producto "id". Todas las uds de dicho producto que tenia la ciudad han desaparecido. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>                                                                                 {</div>
+<div class="line"><span class="lineno">   45</span>   citySet.at(city_name).removeProduct(<span class="keywordtype">id</span>, product_set);</div>
+<div class="line"><span class="lineno">   46</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a75333e0e09fc945cc0cdd11702aa9c5d" name="a75333e0e09fc945cc0cdd11702aa9c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75333e0e09fc945cc0cdd11702aa9c5d">&#9670;&#160;</a></span>setProductStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::setProductStatus </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProductSet.html">ProductSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>product_set</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>new_owned</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>new_needed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modifica los datos del producto con identificador "id" en el inventario de la ciudad "city_name". </p>
+<p>Es decir, modifica cuantas unidades se tienen de dicho producto y cuantas se necesitan. </p><dl class="section pre"><dt>Precondición</dt><dd>El producto con id "id" se encuentra dentro del inventario de la ciudad "city_name". "new_owned" &gt;= 0 y "new_needed" &gt; 0. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>La ciudad "city_name" tiene "new_owned" uds. del producto "id" y necesita "new_needed" uds. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>                                                                                                                   {</div>
+<div class="line"><span class="lineno">   41</span>   citySet.at(city_name).setProductStatus(<span class="keywordtype">id</span>, product_set, new_owned, new_needed);</div>
+<div class="line"><span class="lineno">   42</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a10ddef529957235d8d3b7793b866a6cc" name="a10ddef529957235d8d3b7793b866a6cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10ddef529957235d8d3b7793b866a6cc">&#9670;&#160;</a></span>trade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void River::trade </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_A</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>city_B</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProductSet.html">ProductSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>product_set</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dos ciudades (existentes) del rio comercian entre ellas. </p>
+<p>Una ciudad le da a la otra todos los productos que le sobren hasta alcanzar si es posible los que la otra necesite, y viceversa. </p><dl class="section pre"><dt>Precondición</dt><dd>"cityA" y "cityB" son los identificadores de dos ciudades EXISTENTES en el parámetro implícito. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>Las dos ciudades han intercambiado productos. Ninguna de las dos se queda con menos unidades de las necesarias si la cantidad de dicho producto era superior que las que necesita. </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>                                                                             {</div>
+<div class="line"><span class="lineno">   49</span>   citySet.at(city_A).trade(citySet.at(city_B), product_set);</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac3e8489f80c7a44e0016b34c1c983e4d" name="ac3e8489f80c7a44e0016b34c1c983e4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e8489f80c7a44e0016b34c1c983e4d">&#9670;&#160;</a></span>travel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int River::travel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBoat.html">Boat</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boat</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classProductSet.html">ProductSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>product_set</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acción de comerció entre un barco y una ruta ciudades del Rio. </p>
+<p>El como se decide en que ruta comerciar en caso que haya más de una ruta igual de provechosa es quedarse con la más corta, y en caso de que tengan la misma longitud, quedarse con la que viene río arriba a mano derecha. </p><dl class="section pre"><dt>Precondición</dt><dd>Cierto. </dd></dl>
+<dl class="section post"><dt>Postcondición</dt><dd>El barco ha comerciado con todas aquellas ciudades del camino que mas provecho le daba. </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Retorna la cantidad total de elementos transaccionados (vendidos + comprados). </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>                                                           {</div>
+<div class="line"><span class="lineno">   59</span>   <a class="code hl_class" href="classTravel.html">Travel</a> current_travel(boat);</div>
+<div class="line"><span class="lineno">   60</span>   <a class="code hl_class" href="classTravel.html">Travel</a> best_travel(current_travel);</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>   findOptimalRoute(structure, current_travel, best_travel);</div>
+<div class="line"><span class="lineno">   63</span>   <span class="comment">// El mejor viaje es best_travel. Es decir, el viaje que acaba en la ciudad best_travel.getLastTrade()</span></div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>   <span class="keywordflow">if</span> (best_travel.getLastTrade() != <span class="stringliteral">&quot;&quot;</span>) {</div>
+<div class="line"><span class="lineno">   66</span>      <span class="comment">// Si no se ha podido comerciar no hay ruta de comercio posible no hay que efectuarla</span></div>
+<div class="line"><span class="lineno">   67</span>      <a class="code hl_class" href="classBoat.html">Boat</a> traveling_boat = boat; <span class="comment">// Se envia una copia del barco a viajar por el rio.</span></div>
+<div class="line"><span class="lineno">   68</span>      trade(structure, best_travel.getLastTrade(), traveling_boat, product_set);</div>
+<div class="line"><span class="lineno">   69</span>      <span class="comment">// Va a ir comerciando por la ruta que acaba en &quot;best_travel.getLastTrade()&quot; hasta encontrar a esa ciudad.</span></div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>      boat.<a class="code hl_function" href="classBoat.html#a8201a68eb3920a8573cf28f4358ae0c1">addTravel</a>(best_travel.getLastTrade()); <span class="comment">// Se añade el viaje a la lista.</span></div>
+<div class="line"><span class="lineno">   72</span>   }</div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>   </div>
+<div class="line"><span class="lineno">   75</span>   <span class="keywordflow">return</span> boat.<a class="code hl_function" href="classBoat.html#a9d82a473487ac19b18a494c446955814">getAvailible</a>() - best_travel.getStock() + boat.<a class="code hl_function" href="classBoat.html#afd54fd6c2712b767574f0e8a6f2706fd">getBuyTarget</a>() - best_travel.getBuyTarget();</div>
+<div class="line"><span class="lineno">   76</span>}</div>
+<div class="ttc" id="aclassBoat_html"><div class="ttname"><a href="classBoat.html">Boat</a></div><div class="ttdoc">Un barco (Boat) se dedica a hacer viajes, donde intenta vender una cantidad de un cierto producto y c...</div><div class="ttdef"><b>Definition</b> Boat.hh:20</div></div>
+<div class="ttc" id="aclassBoat_html_a8201a68eb3920a8573cf28f4358ae0c1"><div class="ttname"><a href="classBoat.html#a8201a68eb3920a8573cf28f4358ae0c1">Boat::addTravel</a></div><div class="ttdeci">void addTravel(string city_name)</div><div class="ttdoc">Añade la última ciudad del viaje (&quot;city_name&quot;) a los viajes realizados.</div><div class="ttdef"><b>Definition</b> Boat.cc:42</div></div>
+<div class="ttc" id="aclassBoat_html_a9d82a473487ac19b18a494c446955814"><div class="ttname"><a href="classBoat.html#a9d82a473487ac19b18a494c446955814">Boat::getAvailible</a></div><div class="ttdeci">int getAvailible() const</div><div class="ttdoc">Consultora de la cantidad disponible del producto a la venta.</div><div class="ttdef"><b>Definition</b> Boat.cc:56</div></div>
+<div class="ttc" id="aclassBoat_html_afd54fd6c2712b767574f0e8a6f2706fd"><div class="ttname"><a href="classBoat.html#afd54fd6c2712b767574f0e8a6f2706fd">Boat::getBuyTarget</a></div><div class="ttdeci">int getBuyTarget() const</div><div class="ttdoc">Consultora de la cantidad de producto de compra que tiene.</div><div class="ttdef"><b>Definition</b> Boat.cc:52</div></div>
+<div class="ttc" id="aclassTravel_html"><div class="ttname"><a href="classTravel.html">Travel</a></div><div class="ttdoc">Un viaje (Travel) representa y almacena toda la información relevante de un viaje comercial por la cu...</div><div class="ttdef"><b>Definition</b> Travel.hh:22</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li><a class="el" href="River_8hh_source.html">River.hh</a></li>
+<li><a class="el" href="River_8cc.html">River.cc</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -38,7 +38,6 @@ public:
     * 
     * Cualquier producto tiene un peso y un volumen concretos.
     * \pre Cierto.
-    * \warning En ningún momento se ha aclarado que peso y volumen deban ser > 0.
     * \post Se ha creado una instancia de producto con peso = "weight" i volumen = "volume".
    */
    Product(int weight, int volume); // el identificador es natural en un conjunto de productos.
